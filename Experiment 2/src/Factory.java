@@ -45,7 +45,7 @@ public class Factory {
             try {
                 shape = (Shape) Class.forName(UpShapeName).getDeclaredConstructor().newInstance();
             } catch (NoClassDefFoundError e) {
-                System.out.println("未找到 "+UpShapeName+" 类");
+                System.out.println("找不到或无法加载主类 "+UpShapeName);
                 e.printStackTrace();
             }
 
