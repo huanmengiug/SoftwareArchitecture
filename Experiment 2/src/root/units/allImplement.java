@@ -1,3 +1,4 @@
+package root.units;
 import java.io.File;
 import java.lang.reflect.Modifier;
 import java.util.List;
@@ -29,10 +30,10 @@ public class allImplement {
     /**
 	 *  判断一个类是否继承某个父类或实现某个接口
 	 */
-	public static boolean isChildClass(String className,Class parentClazz){
+	public static boolean isChildClass(String className,Class<?> parentClazz){
 		if(className == null) return false;
 		
-		Class clazz = null;
+		Class<?> clazz = null;
 		try {
 			clazz = Class.forName(className);
 			if(Modifier.isAbstract(clazz.getModifiers())){//抽象类忽略

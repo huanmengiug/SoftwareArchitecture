@@ -1,3 +1,4 @@
+package root;
 // 形状接口
 public interface Shape {
 

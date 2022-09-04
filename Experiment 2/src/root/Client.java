@@ -1,3 +1,4 @@
+package root;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
@@ -5,6 +6,8 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+
+import root.units.UnSupportedShapeException;
 public class Client {
     public static void main(String[] args) throws UnSupportedShapeException, InterruptedException, InstantiationException, IllegalAccessException, ClassNotFoundException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
         
@@ -35,7 +38,7 @@ public class Client {
             // 获取根节点 
             Element root = read.getRootElement(); 
             // 通过elementIterator方法获取迭代器 
-            Iterator Secon = root.elementIterator(); 
+            Iterator<?> Secon = root.elementIterator(); 
             // 遍历迭代器 
             while(Secon.hasNext()) { 
                 //开始遍历次级节点
@@ -46,7 +49,7 @@ public class Client {
                 //     System.out.println(a.getName() + ":" + a.getValue()); 
                 // } 
                 // 获取每个次级节点下面的子节点 
-                Iterator child = b.elementIterator(); 
+                Iterator<?>  child = b.elementIterator(); 
                 while(child.hasNext()) { 
                     Element c = (Element)child.next(); 
                     return c.getStringValue(); 

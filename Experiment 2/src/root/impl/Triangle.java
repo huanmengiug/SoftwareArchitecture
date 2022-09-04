@@ -1,4 +1,7 @@
+package root.impl;
 import java.io.IOException;
+
+import root.Shape;
 
 //三角形
 public class Triangle implements Shape{

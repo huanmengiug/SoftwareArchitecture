@@ -1,4 +1,7 @@
+package root.impl;
 import java.io.IOException;
+
+import root.Shape;
 
 //矩形
 public class Rectangle implements Shape{
@@ -7,9 +10,9 @@ public class Rectangle implements Shape{
     public void Paint(int size) {
         System.out.println("绘制矩形");
        
-           for (int i = 1; i <= 5; i++) {
+           for (int i = 1; i <= size; i++) {
                System.out.print("*");
-               for (int j = 1; j <= 5; j++) {
+               for (int j = 1; j <= size; j++) {
                    System.out.print("*");
                }
                System.out.println();
