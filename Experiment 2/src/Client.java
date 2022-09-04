@@ -1,11 +1,12 @@
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 public class Client {
-    public static void main(String[] args) throws UnSupportedShapeException, InterruptedException, InstantiationException, IllegalAccessException, ClassNotFoundException {
+    public static void main(String[] args) throws UnSupportedShapeException, InterruptedException, InstantiationException, IllegalAccessException, ClassNotFoundException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
         
         String shapeType = getChartType();
         Shape shape = Factory.createShape(shapeType);
