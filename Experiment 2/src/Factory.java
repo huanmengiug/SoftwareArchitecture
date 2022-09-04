@@ -40,7 +40,6 @@ public class Factory {
 
         if (shapes.contains(shapeName)){
             String UpShapeName = upperCaseFirstLatter(shapeName);
-            System.out.println(UpShapeName);
 
             try {
                 shape = (Shape) Class.forName(UpShapeName).getDeclaredConstructor().newInstance();
