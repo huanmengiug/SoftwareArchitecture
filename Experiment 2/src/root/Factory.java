@@ -24,7 +24,6 @@ public class Factory {
             }
 		}
         return shapes;
-
     }
 
     public static Shape createShape(String shapeName) throws UnSupportedShapeException, InstantiationException, IllegalAccessException, ClassNotFoundException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
@@ -42,7 +41,6 @@ public class Factory {
             if(shapeName.equalsIgnoreCase(s[s.length-1]))
             {className = shape;}
             shows.add(s[s.length-1]);
-
         }
  
         Shape shape = null;
@@ -55,11 +53,9 @@ public class Factory {
                 System.out.println("找不到或无法加载主类 "+className);
                 e.printStackTrace();
             }
-
         }else{
             throw new UnSupportedShapeException("未知图形！\n支持以下参数：\n"+shows.toString());
         }
-
         return shape;
     }
     

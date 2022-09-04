@@ -17,8 +17,6 @@ public class Rectangle implements Shape{
                }
                System.out.println();
             }
-           
-        
     }
 
     @Override
@@ -31,7 +29,5 @@ public class Rectangle implements Shape{
             e.printStackTrace();
         }
         System.out.println("矩形被擦除");	
-        
     }
-    
 }

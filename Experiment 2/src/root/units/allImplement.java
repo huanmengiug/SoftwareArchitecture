@@ -4,7 +4,6 @@ import java.lang.reflect.Modifier;
 import java.util.List;
 public class allImplement {
 
-   
     /**
 	 *  递归查找指定目录下的类文件的全路径
 	 * @param baseFile 查找文件的入口
@@ -26,7 +25,6 @@ public class allImplement {
 		}
 	}
 
-
     /**
 	 *  判断一个类是否继承某个父类或实现某个接口
 	 */
@@ -47,7 +45,6 @@ public class allImplement {
 			return false;
 		}
 		return parentClazz.isAssignableFrom(clazz);
-		
 	}
 
 

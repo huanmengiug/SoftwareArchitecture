@@ -27,7 +27,6 @@ public class Client {
             e.printStackTrace();
             return null;
         }
-
     }
 
     //dom4j遍历XML

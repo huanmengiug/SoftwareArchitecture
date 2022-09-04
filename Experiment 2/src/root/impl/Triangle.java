@@ -22,14 +22,12 @@ public class Triangle implements Shape{
             // 打印*
             if (i != 1)
                 System.out.print('*');
-            System.out.println();// 换行
+            System.out.println();
         }
         for (int i = 0; i <= size*2; i++){
             System.out.print('*');
         }
-        System.out.println();// 换行
-        
-        
+        System.out.println();
     }
 
     @Override
@@ -42,7 +40,5 @@ public class Triangle implements Shape{
             e.printStackTrace();
         }
         System.out.println("三角形被擦除");
-        
     }
-    
 }

@@ -23,9 +23,7 @@ public class Circle implements Shape{
                 System.out.print(' ');
             }
             System.out.println('*');
- 
         }
-        
     }
 
     @Override
@@ -38,7 +36,6 @@ public class Circle implements Shape{
             e.printStackTrace();
         }
         System.out.println("圆形被擦除");
-        
     }
     
     
