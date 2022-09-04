@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Factory {
+
+    //获取子类
     private static List<String> getAllShape() throws Exception {
         List<String> fileList = new ArrayList<String>();
 		List<String> shapes = new ArrayList<String>();
@@ -20,11 +22,12 @@ public class Factory {
 
     }
     //首字母大写
-    public static String upperCaseFirstLatter(String str){
+    private static String upperCaseFirstLatter(String str){
 		char[] strChar=str.toCharArray();
 		strChar[0]-=32;
 		return String.valueOf(strChar);
 	}
+
     public static Shape createShape(String shapeName) throws UnSupportedShapeException, InstantiationException, IllegalAccessException, ClassNotFoundException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
         List<String> shapes = null;
         try {

@@ -15,6 +15,7 @@ public class Client {
         shape.Erase();
     }
 
+    //获取形状参数(shape)
     public static String getChartType() {
         try {
             String chartType = readXml();;
@@ -26,6 +27,7 @@ public class Client {
 
     }
 
+    //dom4j遍历XML
     public static String readXml() {
 		SAXReader reader = new SAXReader(); 
         try { 
