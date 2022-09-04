@@ -1,4 +1,5 @@
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class Factory {
 		strChar[0]-=32;
 		return String.valueOf(strChar);
 	}
-    public static Shape createShape(String shapeName) throws UnSupportedShapeException, InstantiationException, IllegalAccessException, ClassNotFoundException {
+    public static Shape createShape(String shapeName) throws UnSupportedShapeException, InstantiationException, IllegalAccessException, ClassNotFoundException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
         List<String> shapes = null;
         try {
             shapes = getAllShape();
@@ -39,7 +40,7 @@ public class Factory {
             System.out.println(UpShapeName);
 
             try {
-                shape = (Shape) Class.forName(UpShapeName).newInstance();
+                shape = (Shape) Class.forName(UpShapeName).getDeclaredConstructor().newInstance();
             } catch (NoClassDefFoundError e) {
                 System.out.println("未找到 "+UpShapeName+" 类");
                 e.printStackTrace();
