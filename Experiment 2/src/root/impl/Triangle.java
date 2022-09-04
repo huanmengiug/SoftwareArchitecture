@@ -1,10 +1,11 @@
 package root.impl;
+
 import java.io.IOException;
 
 import root.Shape;
 
 //三角形
-public class Triangle implements Shape{
+public class Triangle implements Shape {
 
     @Override
     public void Paint(int size) {
@@ -24,7 +25,7 @@ public class Triangle implements Shape{
                 System.out.print('*');
             System.out.println();
         }
-        for (int i = 0; i <= size*2; i++){
+        for (int i = 0; i <= size * 2; i++) {
             System.out.print('*');
         }
         System.out.println();

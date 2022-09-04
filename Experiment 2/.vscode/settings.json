@@ -13,4 +13,6 @@
         "java": "cd $dir && javac -encoding utf-8 $fileName && java $fileNameWithoutExt",
         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
     },
+    "kite.codefinder.enableLineDecoration": true,
+    "java.format.settings.url": "C:\\Users\\qing\\.vscode\\extensions\\redhat.java-1.10.0-win32-x64\\formatters\\eclipse-formatter.xml",
 }
