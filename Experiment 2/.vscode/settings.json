@@ -15,4 +15,5 @@
     },
     "kite.codefinder.enableLineDecoration": true,
     "java.format.settings.url": "C:\\Users\\qing\\.vscode\\extensions\\redhat.java-1.10.0-win32-x64\\formatters\\eclipse-formatter.xml",
+    "git.ignoreLegacyWarning": true,
 }
