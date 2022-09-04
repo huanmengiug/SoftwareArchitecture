@@ -18,7 +18,13 @@ public class Factory {
         return shapes;
 
     }
-    public static Shape createShape(String shapeName) throws UnSupportedShapeException {
+    //首字母大写
+    public static String upperCaseFirstLatter(String str){
+		char[] strChar=str.toCharArray();
+		strChar[0]-=32;
+		return String.valueOf(strChar);
+	}
+    public static Shape createShape(String shapeName) throws UnSupportedShapeException, InstantiationException, IllegalAccessException, ClassNotFoundException {
         List<String> shapes = null;
         try {
             shapes = getAllShape();
@@ -28,15 +34,21 @@ public class Factory {
 
         Shape shape = null;
 
-        if (shapeName.equalsIgnoreCase(shapes.get(0))) {
-            shape = new Circle();
-        }else if (shapeName.equalsIgnoreCase(shapes.get(1))) {
-            shape = new Rectangle();
-        }else if (shapeName.equalsIgnoreCase(shapes.get(2))) {
-            shape = new Triangle();
-        }else {
+        if (shapes.contains(shapeName)){
+            String UpShapeName = upperCaseFirstLatter(shapeName);
+            System.out.println(UpShapeName);
+
+            try {
+                shape = (Shape) Class.forName(UpShapeName).newInstance();
+            } catch (NoClassDefFoundError e) {
+                System.out.println("未找到 "+UpShapeName+" 类");
+                e.printStackTrace();
+            }
+
+        }else{
             throw new UnSupportedShapeException("未知图形！\n支持以下参数：\n"+shapes.toString());
         }
+
         return shape;
     }
     

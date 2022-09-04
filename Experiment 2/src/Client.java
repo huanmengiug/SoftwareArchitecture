@@ -5,7 +5,7 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 public class Client {
-    public static void main(String[] args) throws UnSupportedShapeException, InterruptedException {
+    public static void main(String[] args) throws UnSupportedShapeException, InterruptedException, InstantiationException, IllegalAccessException, ClassNotFoundException {
         
         String shapeType = getChartType();
         Shape shape = Factory.createShape(shapeType);
