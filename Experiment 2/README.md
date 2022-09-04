@@ -1,3 +1,12 @@
+## 实验2 
+（1）	第1题：要求用简单工厂模式实现如下功能：（类图+代码）
+1. 创建一个可以绘制多种不同形状的绘图工具类，比如三角形，长方形，椭圆形；
+2. 每个图形均具有绘制Paint()和Erase()两个方法；
+3. 要求在绘制不支持的几何图形时，抛出一个异常UnsupportedShapeException异常。
+
+
+
+## 代码说明
 ## Getting Started
 
 Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
