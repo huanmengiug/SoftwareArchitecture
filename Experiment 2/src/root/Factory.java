@@ -23,7 +23,6 @@ public class Factory {
                 shapes.add(name);
             }
 		}
-        System.out.println(shapes);
         return shapes;
 
     }
@@ -48,12 +47,12 @@ public class Factory {
  
         Shape shape = null;
 
-        if (className!=null){
+        if (className != null){
 
             try {
                 shape = (Shape) Class.forName(className).getDeclaredConstructor().newInstance();
             } catch (NoClassDefFoundError e) {
-                System.out.println("找不到或无法加载主类 ");
+                System.out.println("找不到或无法加载主类 "+className);
                 e.printStackTrace();
             }
 
