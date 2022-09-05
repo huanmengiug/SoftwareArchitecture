@@ -1,10 +1,10 @@
-package Logger.factory.impl;
+package Logger.factory.extend;
 
 import Logger.factory.LoggerFactory;
 import Logger.product.Logger;
 import Logger.product.impl.DatabaseLogger;
 //数据库日志记录器工厂类
-public class DatabaseLoggerFactory implements LoggerFactory{
+public class DatabaseLoggerFactory extends LoggerFactory{
 
     @Override
     public Logger createLogger() {
@@ -16,7 +16,7 @@ public class DatabaseLoggerFactory implements LoggerFactory{
 
     @Override
     public Logger createLogger(String log) {
-        System.out.println("使用参数作为连接字符串来连接数据库");
+        System.out.println("使用参数 "+log+" 作为连接字符串来连接数据库");
         Logger logger = new DatabaseLogger();
         System.out.println("初始化数据库日志记录器");
         return logger;
