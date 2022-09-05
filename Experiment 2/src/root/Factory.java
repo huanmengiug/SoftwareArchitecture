@@ -31,7 +31,6 @@ public class Factory {
             throws UnSupportedShapeException, InstantiationException, IllegalAccessException, ClassNotFoundException,
             IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
         List<String> shows = new ArrayList<String>();
-        ;
         List<String> shapes = null;
         String className = null;
         try {
