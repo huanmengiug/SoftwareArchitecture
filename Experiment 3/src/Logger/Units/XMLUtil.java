@@ -1,4 +1,3 @@
-//designpatterns.factorymethod.XMLUtil.java
 package Logger.Units;
 
 import javax.xml.parsers.*;
