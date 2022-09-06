@@ -13,9 +13,9 @@ import java.util.List;
 
 public class XMLUtil {
 
-	public static void main(String[] args) throws Exception {
-        getAllShape();
-    }
+	// public static void main(String[] args) throws Exception {
+    //     getAllShape();
+    // }
 	// 该方法用于从XML配置文件中提取具体类类名，并返回一个实例对象
 	public static Object getBean() {
 		try {
