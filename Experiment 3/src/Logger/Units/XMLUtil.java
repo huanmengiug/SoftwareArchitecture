@@ -13,9 +13,6 @@ import java.util.List;
 
 public class XMLUtil {
 
-	// public static void main(String[] args) throws Exception {
-    //     getAllShape();
-    // }
 	// 该方法用于从XML配置文件中提取具体类类名，并返回一个实例对象
 	public static Object getBean() {
 		try {
@@ -30,11 +27,19 @@ public class XMLUtil {
 			Node classNode = nl.item(0).getFirstChild();
 			String cName = classNode.getNodeValue();
 
+			List<String> Factory = getAllShape();
 
-			// 通过类名生成实例对象并将其返回
-			Class<?> c = Class.forName(cName);
-			Object obj = c.getDeclaredConstructor().newInstance();
-			return obj;
+			if (Factory.contains(cName)) {
+				// 通过类名生成实例对象并将其返回
+				Class<?> c = Class.forName(cName);
+				Object obj = c.getDeclaredConstructor().newInstance();
+				return obj;
+			} else {
+				System.out.println("config配置应为以下参数:");
+				System.out.println(Factory.toString());
+				return null;
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -44,7 +49,7 @@ public class XMLUtil {
 	// 获取子类
 	private static List<String> getAllShape() throws Exception {
 		List<String> fileList = new ArrayList<String>();
-		List<String> shapes = new ArrayList<String>();
+		List<String> Factory = new ArrayList<String>();
 		File baseFile = new File(System.getProperty("user.dir") + File.separator + "src");
 		if (baseFile.exists()) {// 开发环境，读取源文件
 			getSubFileNameList(baseFile, fileList);
@@ -52,19 +57,19 @@ public class XMLUtil {
 		// 获取Shape的所有实现类（不包含抽象类,接口忽略）
 		for (String name : fileList) {
 			if (isChildClass(name, LoggerFactory.class)) {
-				System.out.println(name);
+				Factory.add(name);
 			}
 		}
-		return shapes;
+		return Factory;
 	}
 
 	/**
 	 * 递归查找指定目录下的类文件的全路径
 	 * 
 	 * @param baseFile
-	 *            查找文件的入口
+	 *                 查找文件的入口
 	 * @param fileList
-	 *            保存已经查找到的文件集合
+	 *                 保存已经查找到的文件集合
 	 */
 	public static void getSubFileNameList(File baseFile, List<String> fileList) {
 		if (baseFile.isDirectory()) {
