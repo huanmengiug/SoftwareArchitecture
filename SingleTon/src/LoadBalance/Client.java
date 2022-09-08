@@ -17,7 +17,7 @@ public class Client {
 
 		// 增加服务器
 		balancer1.addServer("Server 1");
-		balancer1.addServer("Server 2");
+		balancer2.addServer("Server 2");
 		balancer1.addServer("Server 3");
 		balancer1.addServer("Server 4");
 
@@ -26,7 +26,7 @@ public class Client {
 		for (int i = 0; i < 10; i++) {
 			try {
 				Thread.sleep(230);
-				String server = balancer1.getServer();
+				String server = balancer2.getServer();
 				System.out.println("分发请求至服务器：" + server);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
