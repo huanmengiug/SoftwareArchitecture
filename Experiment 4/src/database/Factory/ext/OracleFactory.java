@@ -2,9 +2,9 @@ package database.Factory.ext;
 
 import database.Factory.DatabaseFactory;
 import database.Product.Connection.Connection;
-import database.Product.Connection.ext.oracleConnection;
+import database.Product.Connection.impl.oracleConnection;
 import database.Product.Statement.Statement;
-import database.Product.Statement.ext.oracleStatement;
+import database.Product.Statement.impl.oracleStatement;
 
 public class OracleFactory extends DatabaseFactory {
 

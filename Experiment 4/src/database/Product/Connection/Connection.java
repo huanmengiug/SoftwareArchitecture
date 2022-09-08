@@ -1,6 +1,6 @@
 package database.Product.Connection;
 
-public class Connection {
-    public void connection(){};
+public interface Connection {
+    public void connection();
     
 }
