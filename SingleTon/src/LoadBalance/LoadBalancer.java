@@ -1,3 +1,4 @@
+package LoadBalance;
 import java.util.*;
 
 //负载均衡器类，充当单例角色
