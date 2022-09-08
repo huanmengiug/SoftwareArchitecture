@@ -8,7 +8,7 @@ public class LoadBalancer {
 	//服务器集合
 	private List<String> serverList = null;
 		
-	//˽私有构造函数
+	//私有构造函数
 	private LoadBalancer() {
 		serverList = new ArrayList<>();
 	}
