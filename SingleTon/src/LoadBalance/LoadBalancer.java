@@ -6,11 +6,11 @@ public class LoadBalancer {
 	//私有静态成员变量，存储唯一实例
 	private static LoadBalancer instance = null;
 	//服务器集合
-	private List serverList = null;
+	private List<String> serverList = null;
 		
 	//˽私有构造函数
 	private LoadBalancer() {
-		serverList = new ArrayList();
+		serverList = new ArrayList<>();
 	}
 		
 	//公有静态成员方法，返回唯一实例
