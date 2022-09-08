@@ -1,3 +1,4 @@
+package root.Units;
 
 import javax.xml.parsers.*;
 import org.w3c.dom.*;
@@ -11,7 +12,7 @@ public class XMLUtil {
 			DocumentBuilderFactory dFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = dFactory.newDocumentBuilder();
 			Document doc;							
-			doc =builder.parse(new File("src//designpatterns//abstractfactory//config.xml")); 
+			doc =builder.parse(new File("src//config.xml")); 
 		
 			//获取包含类名的文本结点
 			NodeList nl = doc.getElementsByTagName("className");
