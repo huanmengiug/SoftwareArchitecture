@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <config>
-	<className>database.Factory.ext.MysqlFactory</className>
+	<className>database.Factory.ext.OracleFactory</className>
 </config>
