@@ -16,7 +16,7 @@ public class ConnectionPool {
             connectionList.add(connection);
         }
     }
-    
+
     private static ConnectionPool getInstance() {
         if (connectionPool == null) {
             synchronized (ConnectionPool.class) {
@@ -32,5 +32,5 @@ public class ConnectionPool {
         Integer nextInt = new Random().nextInt(getInstance().connectionInitSize);
         return getInstance().connectionList.get(nextInt);
     }
-    
+
 }
