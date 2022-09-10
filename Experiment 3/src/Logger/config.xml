@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <config>
-	<className>Logger.factory.extend.DataaseLoggerFactory</className>
+	<className>Logger.factory.extend.DatabaseLoggerFactory</className>
 </config>
