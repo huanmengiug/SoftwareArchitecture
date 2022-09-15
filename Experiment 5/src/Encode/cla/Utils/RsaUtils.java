@@ -169,33 +169,33 @@ public class RsaUtils {
     public static class KeyStore {
         private Object publicKey;
         private Object privateKey;
+
         public KeyStore(RSAPublicKey publicKey2, RSAPrivateKey privateKey2) {
             this.publicKey = publicKey2;
             this.privateKey = privateKey2;
         }
+
         public KeyStore(byte[] publicKey, byte[] privateKey) {
             this.publicKey = publicKey;
             this.privateKey = privateKey;
         }
-        public byte[] getPrivateKey(){
-            return (byte[])privateKey;
-        }
-        public String toString(){
-            if(this.publicKey instanceof byte[] && this.privateKey instanceof byte[]){
-                byte[] pub =(byte[]) this.publicKey;
-                byte[] priv =(byte[]) this.privateKey;
+
+        public String toString() {
+            if (this.publicKey instanceof byte[] && this.privateKey instanceof byte[]) {
+                byte[] pub = (byte[]) this.publicKey;
+                byte[] priv = (byte[]) this.privateKey;
                 String str;
                 try {
-                    str = "公钥：" + Base64Utils.encode(pub) +"\n 私钥：" + Base64Utils.encode(priv);
+                    str = "公钥：" + Base64Utils.encode(pub) + "\n 私钥：" + Base64Utils.encode(priv);
                 } catch (Exception e) {
                     e.printStackTrace();
                     str = "ERROR";
                 }
                 return str;
-            }else{
+            } else {
                 return "密钥未初始化！";
             }
-            
+
         }
     }
 

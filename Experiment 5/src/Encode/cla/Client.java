@@ -1,7 +1,6 @@
 package Encode.cla;
 
 import Encode.cla.Utils.XMLUtil;
-import Encode.cla.Utils.RsaUtils.KeyStore;
 
 public class Client {
     public static void main(String[] args) throws Exception {
@@ -26,15 +25,8 @@ public class Client {
         System.out.println(key.toString());
 
         System.out.println("\n==== [解密后] 用户名/密码 =====");
-        if (key instanceof KeyStore && key != null) {
-            KeyStore k = (KeyStore) key;
-            System.out.println(encode.decodes(encode.encodes(username), k.getPrivateKey()));
-            System.out.println(encode.decodes(encode.encodes(password), k.getPrivateKey()));
-
-        } else {
-            System.out.println(encode.decodes(encode.encodes(username)));
-            System.out.println(encode.decodes(encode.encodes(password)));
-        }
+        System.out.println(encode.decodes(encode.encodes(username), encode.getKey()));
+        System.out.println(encode.decodes(encode.encodes(password), encode.getKey()));
 
     }
 

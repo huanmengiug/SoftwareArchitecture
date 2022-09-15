@@ -13,7 +13,7 @@ import java.nio.charset.StandardCharsets;
  * @version 1.0
  */
 public class Base64Utils {
-    
+
     public static String byteArrayToStr(byte[] byteArray) {
         if (byteArray == null) {
             return null;
@@ -57,13 +57,13 @@ public class Base64Utils {
         byte[] textByte = text.getBytes(StandardCharsets.UTF_8);
         return new String(Base64.encodeBase64Chunked(textByte));
     }
+
     // 定义密钥类
     public static class KeyStore {
-        public String toString(){
+        public String toString() {
             return "Base64无密钥";
         }
     }
-    
 
     public static void main(String[] args) throws Exception {
 

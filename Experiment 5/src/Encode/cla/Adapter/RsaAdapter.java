@@ -10,11 +10,6 @@ public class RsaAdapter extends RsaUtils implements Encode {
     private static byte[] privateKey;
 
     @Override
-    public String decodes(String str) {
-        return null;
-    }
-
-    @Override
     public String decodes(String str,byte[] key) {
         byte[] encryptByPublicKey;
         try {
@@ -59,6 +54,11 @@ public class RsaAdapter extends RsaUtils implements Encode {
         }
 
         return null;
+    }
+
+    @Override
+    public byte[] getKey() {
+        return privateKey;
     }
 
 }
