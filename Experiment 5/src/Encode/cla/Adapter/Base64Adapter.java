@@ -1,7 +1,7 @@
 package Encode.cla.Adapter;
 
 import Encode.cla.Encode;
-import Encode.cla.Utils.Base64Utils;
+import Encode.Base64Utils;
 
 public class Base64Adapter extends Base64Utils implements Encode {
 

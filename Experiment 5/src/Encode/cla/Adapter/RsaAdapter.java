@@ -1,8 +1,8 @@
 package Encode.cla.Adapter;
 
 import Encode.cla.Encode;
-import Encode.cla.Utils.Base64Utils;
-import Encode.cla.Utils.RsaUtils;
+import Encode.Base64Utils;
+import Encode.RsaUtils;
 
 public class RsaAdapter extends RsaUtils implements Encode {
 
@@ -10,7 +10,7 @@ public class RsaAdapter extends RsaUtils implements Encode {
     private static byte[] privateKey;
 
     @Override
-    public String decodes(String str,byte[] key) {
+    public String decodes(String str, byte[] key) {
         byte[] encryptByPublicKey;
         try {
             encryptByPublicKey = Base64Utils.decode(str);
@@ -36,23 +36,19 @@ public class RsaAdapter extends RsaUtils implements Encode {
 
     @Override
     public Object Keys() {
-
         try {
-            if (publicKey==null && publicKey==null){
+            if (publicKey == null && publicKey == null) {
                 KeyStore keys = createKeys();
                 publicKey = getPublicKey(keys);
                 privateKey = getPrivateKey(keys);
                 return new KeyStore(publicKey, privateKey);
-            }
-            else{
+            } else {
                 return new KeyStore(publicKey, privateKey);
             }
-            
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
