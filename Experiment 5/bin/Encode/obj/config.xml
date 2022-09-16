@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <config>
-	<className>Encode.Base64Utils</className>
+	<className>Encode.RsaUtils</className>
 </config>
