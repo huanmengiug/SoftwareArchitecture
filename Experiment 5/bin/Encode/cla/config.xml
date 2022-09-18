@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <config>
-	<className>Encode.cla.Adapter.RsaAdapter</className>
+	<className>Encode.cla.Adapter.Base64Adapter</className>
 </config>
