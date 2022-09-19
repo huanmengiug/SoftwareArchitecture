@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<config>
-	<className>Plane.manufacturer.Boeing</className> 
-	<className>Plane.products.Passenger</className>
-</config>
