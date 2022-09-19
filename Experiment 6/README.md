@@ -6,7 +6,12 @@
 
 #### answer
 
-+ 两个变化因素是：<mark><font color=red>*飞机制造商*、*飞机类型*</font></mark> ==highlight 1==
++ 两个变化因素是：
+
+```diff
+! 飞机制造商
+! 飞机类型
+```
 
 [![plane](https://s1.328888.xyz/2022/09/19/2lz3p.png)](https://imgloc.com/i/2lz3p)
 
