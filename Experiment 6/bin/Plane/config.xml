@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config>
+	<!--RefinedAbstraction-->
+	<className>Plane.manufacturer.Airbus</className> 
+	<!--ConcreteImplementor-->
+	<className>Plane.products.Cargo</className>
+</config>
