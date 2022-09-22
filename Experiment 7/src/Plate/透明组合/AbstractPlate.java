@@ -1,4 +1,4 @@
-package Plate;
+package Plate.透明组合;
 
 public abstract class AbstractPlate {
     // 增加成员
@@ -13,6 +13,6 @@ public abstract class AbstractPlate {
     public abstract void show();
 
     // 业务方法
-    public abstract void eat();
+    public abstract void eat(String s);
 
 }

@@ -1,4 +1,4 @@
-package Plate;
+package Plate.透明组合;
 
 import java.util.ArrayList;
 
@@ -35,9 +35,11 @@ public class Plate extends AbstractPlate {
     }
 
     @Override
-    public void eat() {
+    public void eat(String s) {
+        
         for(AbstractPlate aPlate:Plate){
-            aPlate.eat();
+            System.out.println(s+name);
+            aPlate.eat(s+"-");
         }
         
     }

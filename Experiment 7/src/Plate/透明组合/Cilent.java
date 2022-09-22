@@ -1,4 +1,4 @@
-package Plate;
+package Plate.透明组合;
 
 public class Cilent {
     public static void main(String[] args) throws Exception {
@@ -36,6 +36,6 @@ public class Cilent {
         plate3.add(pear2);
         plate3.add(pear3);
 
-        plate1.eat();
+        plate1.eat("-");
     }
 }

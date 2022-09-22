@@ -1,4 +1,4 @@
-package Plate;
+package Plate.透明组合;
 
 public class Apple extends AbstractPlate {
     private String name;
@@ -42,8 +42,8 @@ public class Apple extends AbstractPlate {
     }
 
     @Override
-    public void eat() {
-        System.out.println("吃掉"+name);
+    public void eat(String s) {
+        System.out.println(s+"吃掉"+name);
 
     }
 
