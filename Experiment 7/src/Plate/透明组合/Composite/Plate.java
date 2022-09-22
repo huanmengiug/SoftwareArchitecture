@@ -38,10 +38,17 @@ public class Plate extends AbstractPlate {
 
     @Override
     public void eat(String s) {
+        System.out.println(s+name);
         
         for(AbstractPlate aPlate:Plate){
-            System.out.println(s+name);
-            aPlate.eat(s+"-");
+            if(! (aPlate instanceof Plate)){
+                aPlate.eat(s+"|");
+            }
+        }
+        for(AbstractPlate aPlate:Plate){
+            if(aPlate instanceof Plate){
+                aPlate.eat(s+"|");
+            }
         }
         
     }

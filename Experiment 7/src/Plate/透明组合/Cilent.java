@@ -41,6 +41,6 @@ public class Cilent {
         plate3.add(pear2);
         plate3.add(pear3);
 
-        plate1.eat("-");
+        plate1.eat("|");
     }
 }
