@@ -1,4 +1,6 @@
-package Plate.透明组合;
+package Plate.透明组合.Leaf;
+
+import Plate.透明组合.Component.AbstractPlate;
 
 public class Pear extends AbstractPlate{
     private String name;

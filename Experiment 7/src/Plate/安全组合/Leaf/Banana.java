@@ -1,10 +1,12 @@
-package Plate.安全组合;
+package Plate.安全组合.Leaf;
 
-public class Apple extends AbstractPlate {
+import Plate.安全组合.Component.AbstractPlate;
+
+public class Banana extends AbstractPlate{
     private String name;
 
-    public Apple() {
-        this.name = "苹果";
+    public Banana() {
+        this.name = "香蕉";
     }
 
     @Override
@@ -18,5 +20,5 @@ public class Apple extends AbstractPlate {
         System.out.println(s+"吃掉"+name);
 
     }
-
+    
 }

@@ -1,6 +1,8 @@
-package Plate.透明组合;
+package Plate.透明组合.Composite;
 
 import java.util.ArrayList;
+
+import Plate.透明组合.Component.AbstractPlate;
 
 public class Plate extends AbstractPlate {
     private ArrayList<AbstractPlate> Plate = new ArrayList<AbstractPlate>();

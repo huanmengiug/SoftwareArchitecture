@@ -1,4 +1,4 @@
-package Plate.透明组合;
+package Plate.透明组合.Component;
 
 public abstract class AbstractPlate {
     // 增加成员

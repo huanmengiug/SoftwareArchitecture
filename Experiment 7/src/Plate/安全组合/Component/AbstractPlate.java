@@ -1,4 +1,4 @@
-package Plate.安全组合;
+package Plate.安全组合.Component;
 
 public abstract class AbstractPlate {
 

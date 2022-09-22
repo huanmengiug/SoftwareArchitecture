@@ -1,12 +1,13 @@
-package Plate.安全组合;
+package Plate.安全组合.Leaf;
 
-public class Pear extends AbstractPlate{
+import Plate.安全组合.Component.AbstractPlate;
+
+public class Apple extends AbstractPlate {
     private String name;
 
-    public Pear() {
-        this.name = "梨子";
+    public Apple() {
+        this.name = "苹果";
     }
-
 
     @Override
     public void show() {
@@ -19,5 +20,5 @@ public class Pear extends AbstractPlate{
         System.out.println(s+"吃掉"+name);
 
     }
-    
+
 }

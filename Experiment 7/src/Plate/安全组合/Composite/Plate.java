@@ -1,6 +1,8 @@
-package Plate.安全组合;
+package Plate.安全组合.Composite;
 
 import java.util.ArrayList;
+
+import Plate.安全组合.Component.AbstractPlate;
 
 public class Plate extends AbstractPlate {
     private ArrayList<AbstractPlate> Plate = new ArrayList<AbstractPlate>();

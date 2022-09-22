@@ -1,5 +1,10 @@
 package Plate.安全组合;
 
+import Plate.安全组合.Composite.Plate;
+import Plate.安全组合.Leaf.Apple;
+import Plate.安全组合.Leaf.Banana;
+import Plate.安全组合.Leaf.Pear;
+
 public class Cilent {
     public static void main(String[] args) throws Exception {
         Plate plate1,plate2,plate3;

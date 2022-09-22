@@ -1,11 +1,14 @@
-package Plate.安全组合;
+package Plate.安全组合.Leaf;
 
-public class Banana extends AbstractPlate{
+import Plate.安全组合.Component.AbstractPlate;
+
+public class Pear extends AbstractPlate{
     private String name;
 
-    public Banana() {
-        this.name = "香蕉";
+    public Pear() {
+        this.name = "梨子";
     }
+
 
     @Override
     public void show() {
