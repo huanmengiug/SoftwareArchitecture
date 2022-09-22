@@ -1,5 +1,5 @@
 package VisualComponent.Transparentd.Component;
 
 public abstract class Component {
-    public  abstract void display();
+    public abstract void display();
 }

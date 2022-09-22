@@ -2,11 +2,11 @@ package VisualComponent.Transparentd.Component.ConcreteComponent;
 
 import VisualComponent.Transparentd.Component.Component;
 
-public class ListBox extends Component{
+public class ListBox extends Component {
 
     @Override
     public void display() {
-        System.out.println("显示文本框！"); 
+        System.out.println("显示文本框！");
     }
-    
+
 }

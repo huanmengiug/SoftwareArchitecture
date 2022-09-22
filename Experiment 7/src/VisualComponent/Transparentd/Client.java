@@ -6,11 +6,11 @@ import VisualComponent.Transparentd.Decorator.ConcreteDecorator.BlackBorderDecor
 import VisualComponent.Transparentd.Decorator.ConcreteDecorator.ScrollBarDecorator;
 
 public class Client {
-    public  static void main(String args[]) throws Exception{
-        Component component,componentSB,componentBB; 
-        component = new TextBox(); 
-        componentSB = new ScrollBarDecorator(component); 
+    public static void main(String args[]) throws Exception {
+        Component component, componentSB, componentBB;
+        component = new TextBox();
+        componentSB = new ScrollBarDecorator(component);
         componentBB = new BlackBorderDecorator(componentSB);
-        componentBB.display(); 
+        componentBB.display();
     }
 }
