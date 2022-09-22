@@ -15,6 +15,6 @@ public class BlackBorderDecorator extends ComponentDecorator {
     }
 
     public void setBlackBorder() {
-        System.out.println("为构件增加黑色边框！");
+        System.out.print("增加黑色边框的");
     }
 }

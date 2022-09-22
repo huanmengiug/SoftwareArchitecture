@@ -15,7 +15,7 @@ public class ScrollBarDecorator extends ComponentDecorator {
     }
 
     public void setScrollBar() {
-        System.out.println("为构件增加滚动条！");
+        System.out.print("增加滚动条的");
     }
 
 }
