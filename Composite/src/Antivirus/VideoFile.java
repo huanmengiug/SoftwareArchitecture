@@ -30,5 +30,11 @@ public class VideoFile extends AbstractFile{
         System.out.println("查杀视频文件 "+name);
         
     }
+
+    @Override
+    public void show() {
+        System.out.println("视频文件 :"+name);
+        
+    }
     
 }

@@ -29,5 +29,10 @@ public class lmageFile extends AbstractFile{
         System.out.println("查杀图像文件 "+name);
         
     }
+
+    @Override
+    public void show() {
+        System.out.println("图像文件 :"+name);
+    }
     
 }

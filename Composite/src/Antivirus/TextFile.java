@@ -30,5 +30,11 @@ public class TextFile extends AbstractFile{
         System.out.println("查杀文本文件 "+name);
         
     }
+
+    @Override
+    public void show() {
+        System.out.println("文本文件 :"+name);
+        
+    }
     
 }

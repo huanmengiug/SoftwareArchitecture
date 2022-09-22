@@ -8,7 +8,9 @@ public abstract class AbstractFile {
     public abstract void remove(AbstractFile file);
 
     // 获取成员
-    public abstract AbstractFile getChild(int i);;
+    public abstract AbstractFile getChild(int i);
+
+    public abstract void show();
 
     // 业务方法
     public abstract void killVlrus();

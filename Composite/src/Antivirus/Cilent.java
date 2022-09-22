@@ -29,6 +29,6 @@ public class Cilent {
         Folder3.add(Video1);
         Folder3.add(Text2);
 
-        Folder1.killVlrus();
+        Folder1.show();
     }
 }

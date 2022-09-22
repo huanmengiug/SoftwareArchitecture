@@ -36,4 +36,13 @@ public class Folder extends AbstractFile {
 
     }
 
+    @Override
+    public void show() {
+        
+        for (Object o : fileList){
+            System.out.println("文件夹📂"+name);
+            ((AbstractFile) o).show();
+        }
+    }
+
 }
