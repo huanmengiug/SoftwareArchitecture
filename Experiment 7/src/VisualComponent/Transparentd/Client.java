@@ -7,7 +7,7 @@ import VisualComponent.Transparentd.Decorator.ConcreteDecorator.ScrollBarDecorat
 
 public class Client {
     public static void main(String args[]) throws Exception {
-        Component component, componentSB, componentBB;
+        Component component, componentSB, componentBB;//全部使用抽象构件
         component = new TextBox();
         componentSB = new ScrollBarDecorator(component);
         componentBB = new BlackBorderDecorator(componentSB);
