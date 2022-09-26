@@ -1,6 +1,6 @@
 package proxy;
 
-public class Application extends Subject {
+public class Application implements Subject {
     @Override
     public void run() throws Exception {
         System.out.println("Application is running!");

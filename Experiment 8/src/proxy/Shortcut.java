@@ -1,6 +1,6 @@
 package proxy;
 
-public class Shortcut extends Subject{
+public class Shortcut implements Subject{
 	private Application application = new Application();
     @Override
 	public void run() throws Exception{
