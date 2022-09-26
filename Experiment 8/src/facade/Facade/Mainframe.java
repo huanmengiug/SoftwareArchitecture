@@ -28,7 +28,7 @@ public class Mainframe {
     public void on() {
         ArrayList<ControlFlag> alist = new ArrayList<ControlFlag>();
         alist.add(new ControlFlag(cpu.run(success) ? 1 : 0));
-        alist.add(new ControlFlag(memory.check(success) ? 1 : 0));
+        alist.add(new ControlFlag(memory.check(error) ? 1 : 0));
         alist.add(new ControlFlag(ssd.read(success) ? 1 : 0));
         alist.add(new ControlFlag(hd.read(success) ? 1 : 0));
         alist.add(new ControlFlag(os.load(success) ? 1 : 0));
