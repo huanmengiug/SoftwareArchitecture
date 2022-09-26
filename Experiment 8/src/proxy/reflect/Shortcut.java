@@ -4,8 +4,13 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.Date;
 
+import proxy.Application;
+
 public class Shortcut implements InvocationHandler{
     Object application;// 被代理的对象application
+    public Shortcut() {
+        this.application = new Application();
+    }
 
     public Shortcut(Object application) {
         this.application = application;

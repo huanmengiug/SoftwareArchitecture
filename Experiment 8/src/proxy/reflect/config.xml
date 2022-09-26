@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<config>
+	<className>proxy.Application</className>
+	<className>proxy.Subject</className>
+</config>
