@@ -7,6 +7,7 @@
 #### answer
 
 + 静态代理
+
 [![静态代理](https://s1.328888.xyz/2022/09/26/sjFtw.png)](https://imgloc.com/i/sjFtw)
 
 + 动态代理(<font color=red>***这个作业里没有，不用画！！！***</font>)
