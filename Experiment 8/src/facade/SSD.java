@@ -1,7 +1,7 @@
 package facade;
 
 public class SSD {
-    public void check(){
+    public void read(){
         System.out.println("SSD is checking.....");
     }
     public void off(){
