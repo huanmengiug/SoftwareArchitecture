@@ -45,14 +45,14 @@ public class Mainframe {
     }
 
     private void on() {
-        if(power == false){
+        if (power == false) {
             alist.clear();
             alist.add(new ControlFlag(cpu.run(success) ? 1 : 0));
             alist.add(new ControlFlag(memory.check(success) ? 1 : 0));
             alist.add(new ControlFlag(ssd.read(error) ? 1 : 0));
             alist.add(new ControlFlag(hd.read(success) ? 1 : 0));
             alist.add(new ControlFlag(os.load(success) ? 1 : 0));
-    
+
             Long sum = alist.stream().mapToLong(ControlFlag::getNum).sum();
             if (sum < alist.size()) {
                 System.out.println("电脑开启出错！！！");
@@ -61,15 +61,14 @@ public class Mainframe {
                 power = true;
                 System.out.println("电脑开启");
             }
-        }
-        else{
+        } else {
             System.out.println("电脑已开启");
         }
 
     }
 
     private void off() {
-        if(power == true){
+        if (power == true) {
             alist.clear();
             alist.add(new ControlFlag(cpu.off(success) ? 1 : 0));
             alist.add(new ControlFlag(memory.off(success) ? 1 : 0));
@@ -85,8 +84,7 @@ public class Mainframe {
                 power = false;
                 System.out.println("电脑关机");
             }
-        }
-        else{
+        } else {
             System.out.println("电脑已关机");
         }
     }
