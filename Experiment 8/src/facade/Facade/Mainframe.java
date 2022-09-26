@@ -14,7 +14,6 @@ public class Mainframe {
     private HardDisk hd;
     private SolidStateDisk ssd;
     private OS os;
-    private static volatile Mainframe frame;
     private ArrayList<ControlFlag> alist = new ArrayList<ControlFlag>();
     private boolean power = false;
     private static final int success = 1;
@@ -28,14 +27,21 @@ public class Mainframe {
         os = new OS();
     }
 
+    private static class SingletonHelper {
+        private static final Mainframe INSTANCE = new Mainframe();
+    }
+
+    public boolean getState(){
+        return power;
+    }
+
+    public static Mainframe getInstance() {
+        return SingletonHelper.INSTANCE;
+    }
+
     public static Mainframe getMainframe(String o) {
-        if (frame == null) {
-            synchronized (Mainframe.class) {
-                if (frame == null) {
-                    frame = new Mainframe();
-                }
-            }
-        }
+        Mainframe frame = getInstance();
+        
         if (o.contentEquals("on")) {
             frame.on();
         } else if (o.contentEquals("off")) {
@@ -49,9 +55,9 @@ public class Mainframe {
             alist.clear();
             alist.add(new ControlFlag(cpu.run(success) ? 1 : 0));
             alist.add(new ControlFlag(memory.check(success) ? 1 : 0));
-            alist.add(new ControlFlag(ssd.read(error) ? 1 : 0));
+            alist.add(new ControlFlag(ssd.read(success) ? 1 : 0));
             alist.add(new ControlFlag(hd.read(success) ? 1 : 0));
-            alist.add(new ControlFlag(os.load(success) ? 1 : 0));
+            alist.add(new ControlFlag(os.load(error) ? 1 : 0));
 
             Long sum = alist.stream().mapToLong(ControlFlag::getNum).sum();
             if (sum < alist.size()) {
