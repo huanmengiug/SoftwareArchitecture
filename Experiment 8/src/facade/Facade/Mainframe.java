@@ -14,10 +14,13 @@ public class Mainframe {
     private HardDisk hd;
     private SolidStateDisk ssd;
     private OS os;
+    private static volatile Mainframe frame;
+    private ArrayList<ControlFlag> alist = new ArrayList<ControlFlag>();
+    private boolean power = false;
     private static final int success = 1;
     private static final int error = 0;
 
-    public Mainframe() {
+    private Mainframe() {
         memory = new Memory();
         cpu = new CPU();
         hd = new HardDisk();
@@ -25,37 +28,66 @@ public class Mainframe {
         os = new OS();
     }
 
-    public void on() {
-        ArrayList<ControlFlag> alist = new ArrayList<ControlFlag>();
-        alist.add(new ControlFlag(cpu.run(success) ? 1 : 0));
-        alist.add(new ControlFlag(memory.check(error) ? 1 : 0));
-        alist.add(new ControlFlag(ssd.read(success) ? 1 : 0));
-        alist.add(new ControlFlag(hd.read(success) ? 1 : 0));
-        alist.add(new ControlFlag(os.load(success) ? 1 : 0));
-
-        Long sum = alist.stream().mapToLong(ControlFlag::getNum).sum();
-        if (sum < alist.size()) {
-            System.out.println("电脑开启出错！！！");
-            System.out.println(alist.size() - sum);
-        } else if (sum == alist.size()) {
-            System.out.println("电脑开启");
+    public static Mainframe getMainframe(String o) {
+        if (frame == null) {
+            synchronized (Mainframe.class) {
+                if (frame == null) {
+                    frame = new Mainframe();
+                }
+            }
         }
+        if (o.contentEquals("on")) {
+            frame.on();
+        } else if (o.contentEquals("off")) {
+            frame.off();
+        }
+        return frame;
     }
 
-    public void off() {
-        ArrayList<ControlFlag> alist = new ArrayList<ControlFlag>();
-        alist.add(new ControlFlag(cpu.run(success) ? 1 : 0));
-        alist.add(new ControlFlag(memory.check(success) ? 1 : 0));
-        alist.add(new ControlFlag(ssd.read(success) ? 1 : 0));
-        alist.add(new ControlFlag(hd.read(success) ? 1 : 0));
-        alist.add(new ControlFlag(os.load(success) ? 1 : 0));
+    private void on() {
+        if(power == false){
+            alist.clear();
+            alist.add(new ControlFlag(cpu.run(success) ? 1 : 0));
+            alist.add(new ControlFlag(memory.check(success) ? 1 : 0));
+            alist.add(new ControlFlag(ssd.read(error) ? 1 : 0));
+            alist.add(new ControlFlag(hd.read(success) ? 1 : 0));
+            alist.add(new ControlFlag(os.load(success) ? 1 : 0));
+    
+            Long sum = alist.stream().mapToLong(ControlFlag::getNum).sum();
+            if (sum < alist.size()) {
+                System.out.println("电脑开启出错！！！");
+                System.out.println(alist.size() - sum);
+            } else if (sum == alist.size()) {
+                power = true;
+                System.out.println("电脑开启");
+            }
+        }
+        else{
+            System.out.println("电脑已开启");
+        }
 
-        Long sum = alist.stream().mapToLong(ControlFlag::getNum).sum();
-        if (sum < alist.size()) {
-            System.out.println("电脑关机出错！！！");
-            System.out.println(alist.size() - sum);
-        } else if (sum == alist.size()) {
-            System.out.println("电脑关机");
+    }
+
+    private void off() {
+        if(power == true){
+            alist.clear();
+            alist.add(new ControlFlag(cpu.off(success) ? 1 : 0));
+            alist.add(new ControlFlag(memory.off(success) ? 1 : 0));
+            alist.add(new ControlFlag(ssd.off(success) ? 1 : 0));
+            alist.add(new ControlFlag(hd.off(success) ? 1 : 0));
+            alist.add(new ControlFlag(os.off(success) ? 1 : 0));
+
+            Long sum = alist.stream().mapToLong(ControlFlag::getNum).sum();
+            if (sum < alist.size()) {
+                System.out.println("电脑关机出错！！！");
+                System.out.println(alist.size() - sum);
+            } else if (sum == alist.size()) {
+                power = false;
+                System.out.println("电脑关机");
+            }
+        }
+        else{
+            System.out.println("电脑已关机");
         }
     }
 
