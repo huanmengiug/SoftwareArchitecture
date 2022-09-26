@@ -20,8 +20,8 @@ public class Client {
         // 3. 获取所有接口的Class
         Class<?>[] interfaces = target.getClass().getInterfaces();
         // 4. 创建一个将传给代理类的调用请求处理器，处理所有的代理对象上的方法调用
-        Object tr = XMLUtil.getBean(target);
-        InvocationHandler shortcut = (InvocationHandler)tr;
+        // Object tr = XMLUtil.getBean(target);
+        InvocationHandler shortcut =new Shortcut(target);
         /*
          * 5.根据上面提供的信息，创建代理对象 在这个过程中，
          * a.JDK会通过根据传入的参数信息动态地在内存中创建和.class 文件等同的字节码
