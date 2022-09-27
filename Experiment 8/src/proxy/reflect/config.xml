@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <config>
 	<className>proxy.Application</className>
-	<className>proxy.Subject</className>
+	<className>proxy.reflect.Shortcut</className>
 </config>

@@ -4,13 +4,8 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.Date;
 
-import proxy.Application;
-
-public class Shortcut implements InvocationHandler{
+public class Shortcut implements InvocationHandler {
     Object application;// 被代理的对象application
-    public Shortcut() {
-        this.application = new Application();
-    }
 
     public Shortcut(Object application) {
         this.application = application;
@@ -21,15 +16,17 @@ public class Shortcut implements InvocationHandler{
         before();
         Object result = method.invoke(application, args);
         after();
-        return result;  // 返回方法的执行结果
+        return result; // 返回方法的执行结果
     }
+
     // 调用invoke方法之前执行
     private void before() {
         System.out.println(String.format("log start time [%s] ", new Date()));
     }
+
     // 调用invoke方法之后执行
     private void after() {
         System.out.println(String.format("log end time [%s] ", new Date()));
     }
-    
+
 }

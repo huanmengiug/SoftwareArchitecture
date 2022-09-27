@@ -3,7 +3,7 @@ package proxy.reflect;
 import javax.xml.parsers.*;
 import org.w3c.dom.*;
 import java.io.*;
-import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
 
 public class XMLUtil {
 	// 该方法用于从XML配置文件中提取具体类类名，并返回一个实例对象
@@ -44,16 +44,9 @@ public class XMLUtil {
 			String cName = classNode.getNodeValue();
 
 			// 通过类名生成实例对象并将其返回
-			Class<?> c = Class.forName(cName);
-			Object obj = c.getDeclaredConstructor().newInstance();
-
-			// 直接执行方法
-			Class<?>[] m = new Class[1];
-			m[0] = String.class;
-			Method method = c.getDeclaredMethod("Subject", m);
-			Object[] values = new Object[1];
-			values[0] = object;
-			method.invoke(obj, values);
+			Class<?> cls = Class.forName(cName);
+			Constructor<?> cons = cls.getConstructor(Object.class);
+			Object obj = cons.newInstance(object);
 
 			return obj;
 		} catch (Exception e) {
