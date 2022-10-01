@@ -1,4 +1,7 @@
-package Command;
+package Command.ConcreteCommand;
+
+import Command.Command.Command;
+import Command.Receiver.BoardScreen;
 
 public class OpenCommand implements Command {
     private BoardScreen screen;

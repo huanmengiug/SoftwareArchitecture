@@ -1,4 +1,7 @@
-package Command;
+package Command.Receiver;
+
+import Command.Menu;
+import Command.Invoker.MenuItem;
 
 public class BoardScreen {
     private Menu menu;

@@ -1,4 +1,6 @@
-package Command;
+package Command.Invoker;
+
+import Command.Command.Command;
 
 public class MenuItem {
     private String name;
