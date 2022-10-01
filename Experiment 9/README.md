@@ -6,11 +6,13 @@
 
 #### answer
 
-![命令模式](https://s1.328888.xyz/2022/10/01/MQm6s.png)](<https://imgloc.com/i/MQm6s>)
+[![命令模式](https://s1.328888.xyz/2022/10/01/MQm6s.png)](https://imgloc.com/i/MQm6s)
 
 ### **（2）电视机遥控器是一个迭代器的现实应用，通过它可以实现对电视频道集合的遍历操作，电视机可以看成一个存储频道的聚合对象。试模拟电视机遥控器的实现，要求绘制相应的类图并编程模拟实现。**
 
 #### answer
+
+[![迭代器模式](.\\迭代器模式.drawio.svg)](https://imgloc.com/i/MHkXr)
 
 ## 代码说明
 
