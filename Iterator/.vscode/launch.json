@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Client",
+            "request": "launch",
+            "mainClass": "Client",
+            "projectName": "Iterator_e252a328"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - External Console",
+            "request": "launch",
+            "mainClass": "${file}",
+            "console": "externalTerminal"
+        }
+    ]
+}

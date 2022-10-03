@@ -1,5 +1,18 @@
 {
     "java.project.sourcePaths": [
         "src"
-    ]
+    ],
+    "launch": {
+        "configurations": [
+            {
+                "type": "java",
+                "name": "Debug (Launch) - External Console",
+                "request": "launch",
+                "mainClass": "${file}",
+                "console": "externalTerminal"
+            }
+        ],
+        "compounds": []
+    },
+    "editor.formatOnSave": true
 }
