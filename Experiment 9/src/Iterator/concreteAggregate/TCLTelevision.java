@@ -40,5 +40,11 @@ public class TCLTelevision implements Television {
         public boolean isFirst() {
             return currentIndex == 0;
         }
+        
+        @Override
+        public void last() {
+            currentIndex = obj.length-1;
+            
+        }
     }
 }

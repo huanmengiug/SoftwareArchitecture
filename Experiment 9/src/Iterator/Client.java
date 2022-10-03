@@ -15,7 +15,7 @@ public class Client {
 
 	public static void reverseDisplay(Television tv) {
 		TVIterator i = tv.createIterator();
-		i.setChannel(5);
+		i.last();
 		System.out.println("逆向遍历电视机频道：");
 		while (!i.isFirst()) {
 			i.previous();
