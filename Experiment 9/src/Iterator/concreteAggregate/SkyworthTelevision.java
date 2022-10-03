@@ -33,12 +33,12 @@ public class SkyworthTelevision implements Television {
             return obj[currentIndex];
         }
 
-        public boolean isLast() {
-            return currentIndex == obj.length;
+        public boolean hasNext() {
+            return !(currentIndex == obj.length);
         }
 
-        public boolean isFirst() {
-            return currentIndex == 0;
+        public boolean hasPrev() {
+            return !(currentIndex <= 0);
         }
 
         @Override

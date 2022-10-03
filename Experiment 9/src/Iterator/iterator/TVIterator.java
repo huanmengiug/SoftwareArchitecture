@@ -5,8 +5,8 @@ public interface TVIterator {
 	void next();
 	void previous();
 	void last();
-	boolean isLast();
+	boolean hasNext();
 	Object currentChannel();
-    boolean isFirst();
+    boolean hasPrev();
     
 }
