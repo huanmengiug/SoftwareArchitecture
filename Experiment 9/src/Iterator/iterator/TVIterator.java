@@ -1,4 +1,4 @@
-package Iterator;
+package Iterator.iterator;
 
 public interface TVIterator {
     void setChannel(int i);

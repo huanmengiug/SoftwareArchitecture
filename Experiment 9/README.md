@@ -12,6 +12,8 @@
 
 #### answer
 
++ 内部类实现
+
 [![迭代器模式](.\\迭代器模式.drawio.svg)](https://imgloc.com/i/MHkXr)
 
 ## 代码说明

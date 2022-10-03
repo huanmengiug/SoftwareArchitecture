@@ -1,5 +1,7 @@
-package Iterator;
+package Iterator.concreteAggregate;
 
+import Iterator.aggregate.Television;
+import Iterator.iterator.TVIterator;
 
 public class SkyworthTelevision implements Television {
     private Object[] obj = { "CCTV-1", "CCTV-2", "CCTV-3", "CCTV-4", "CCTV-5", "CCTV-6", "CCTV-7", "CCTV-8" };

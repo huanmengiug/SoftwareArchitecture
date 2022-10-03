@@ -1,4 +1,7 @@
-package Iterator;
+package Iterator.concreteAggregate;
+
+import Iterator.aggregate.Television;
+import Iterator.iterator.TVIterator;
 
 public class TCLTelevision implements Television {
     private Object[] obj = { "湖南卫视", "北京卫视", "上海卫视", "湖北卫视", "黑龙江卫视" };
