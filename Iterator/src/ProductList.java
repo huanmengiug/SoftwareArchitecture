@@ -7,7 +7,6 @@ public class ProductList extends AbstractObjectList {
 		super(products);
 	}
 
-	// ʵ�ִ�������������ľ��幤������
 	public AbstractIterator createIterator() {
 		return new ProductIterator(this);
 	}
