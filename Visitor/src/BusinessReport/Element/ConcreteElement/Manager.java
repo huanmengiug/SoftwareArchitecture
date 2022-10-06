@@ -13,8 +13,8 @@ public class Manager extends Staff {
     }
 
     @Override
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
+    public String accept(Visitor visitor) {
+        return visitor.visit(this);
     }
     // 一年做的产品数量
     public int getProducts() {

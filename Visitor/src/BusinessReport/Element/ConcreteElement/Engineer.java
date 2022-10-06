@@ -13,8 +13,8 @@ public class Engineer extends Staff {
     }
 
     @Override
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
+    public String accept(Visitor visitor) {
+        return visitor.visit(this);
     }
     // 工程师一年的代码数量
     public int getCodeLines() {

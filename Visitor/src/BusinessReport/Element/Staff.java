@@ -15,5 +15,5 @@ public abstract class Staff {
         kpi = new Random().nextInt(10);
     }
     // 核心方法，接受Visitor的访问
-    public abstract void accept(Visitor visitor);
+    public abstract String accept(Visitor visitor);
 }

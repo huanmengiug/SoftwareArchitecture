@@ -6,8 +6,8 @@ import BusinessReport.Element.ConcreteElement.Manager;
 public interface Visitor {
 
     // 访问工程师类型
-    void visit(Engineer engineer);
+    String visit(Engineer engineer);
 
     // 访问经理类型
-    void visit(Manager manager);
+    String visit(Manager manager);
 }

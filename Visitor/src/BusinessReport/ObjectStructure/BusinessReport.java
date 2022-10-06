@@ -1,5 +1,6 @@
 package BusinessReport.ObjectStructure;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -26,9 +27,11 @@ public class BusinessReport {
      * 为访问者展示报表
      * @param visitor 公司高层，如CEO、CTO
      */
-    public void showReport(Visitor visitor) {
+    public List<String> showReport(Visitor visitor) {
+        List<String> staffList = new ArrayList<String>();
         for (Staff staff : mStaffs) {
-            staff.accept(visitor);
+            staffList.add(staff.accept(visitor));
         }
+        return staffList;
     }
 }
