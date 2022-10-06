@@ -23,9 +23,11 @@ public class Client {
 
         // 4.在目标处显示本系名称
         department1.notifyObservers();
+        System.out.println("");
         department2.notifyObservers();
+        System.out.println("————————————————————————————————修改后——————————————————————————————————");
 
-        // 4.在目标处修改本系名称
+        // 5.在目标处修改本系名称
         department1.setDepartmentName("软件工程");
     }
 }
