@@ -1,25 +1,31 @@
 package BusinessReport;
 
+import java.io.IOException;
+import java.io.StringWriter;
 import java.util.Iterator;
 import java.util.List;
 
 import BusinessReport.ObjectStructure.BusinessReport;
 import BusinessReport.Visitor.ConcreteVisitor.CEOVisitor;
 import BusinessReport.Visitor.ConcreteVisitor.CTOVisitor;
+import org.json.simple.JSONObject;
 
 public class Client {
-    public static String data(String Visitor) {
-        String data = "{";
+    public static String data(String Visitor) throws IOException {
+        JSONObject json = new JSONObject();
         BusinessReport report = new BusinessReport();
         List<String> bss = report.showReport(new CTOVisitor());
 
         Iterator<String> iterator = bss.iterator();
         while (iterator.hasNext()) {
             String next = iterator.next();
-            data += next+',';
+            next = next.split(": ")[1];
+            json.put("name",next.split(",")[0]);
         }
-        System.out.println(data);
-        return data+= "}";
+        StringWriter out = new StringWriter();
+        json.writeJSONString(out);
+        String data = out.toString();
+        return data ;
     }
 
     public static void main(String[] args) {
@@ -29,6 +35,5 @@ public class Client {
         report.showReport(new CEOVisitor());
         System.out.println("=========== CTO看报表 ===========");
         report.showReport(new CTOVisitor());
-        data("1");
     }
 }

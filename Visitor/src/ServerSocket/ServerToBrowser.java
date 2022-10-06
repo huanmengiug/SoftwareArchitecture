@@ -3,7 +3,8 @@ package ServerSocket;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import org.json.simple.JSONObject;
+
+import BusinessReport.Client;
 
 public class ServerToBrowser {
     public static void main(String[] args) throws IOException {
@@ -35,19 +36,13 @@ public class ServerToBrowser {
                 // 响应头部
                 String response_head = "HTTP/1.1 200 OK\r\n"
                         + "Access-Control-Allow-Origin:"+ ALLOW_ORIGINS +"\r\n"
-                        + "Content-Type: application/json;charset=utf-8\r\n"
+                        + "Content-Type: application/json;charset=GBK\r\n"
                         + "Access-Control-Allow-Methods: PUT,POST,GET\r\n"
                         +  "\r\n";
 
-                JSONObject json = new JSONObject();
-
-                json.put("num", 100);
-                json.put("data", 1000.21);
-                json.put("is_vip", true);
-
-                StringWriter out = new StringWriter();
-                json.writeJSONString(out);
-                String jsonText = out.toString();
+                
+                String jsonText = Client.data("1");
+                System.out.println(jsonText);
                 // 响应主体
                 String response_body = jsonText;
 
