@@ -198,6 +198,20 @@
 
 <script src="./access/echarts/echarts.js"></script>
 <script type="text/javascript">
+    $.ajax({
+        url: 'http://127.0.0.1:8088/data',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data)
+        },
+        error: function (err) {
+            console.log(err,"1")
+            //请求失败的回调函数,参数"err"中放的是错误信息
+        }
+    })
+
+
     const source_data = [
         { value: 1048, name: 'SearchEngine' },
         { value: 735, name: 'Direct' },
@@ -227,9 +241,8 @@
     var chartDom = document.getElementById('echarts');
     xunran()
     function xunran() {
-        
+
         is_dark = ddra ? "dark" : "null"
-        console.log(ddra,is_dark)
 
         if (chartDom != null && chartDom != "" && chartDom != undefined) {
             echarts.dispose(chartDom) //销毁
@@ -281,12 +294,12 @@
 
         option && myChart.setOption(option);
     }
-    
+
     var chk_value;
     $('.toggle').click(function () {
         ddra = !ddra;
         chk_value = ddra;
-        
+
         if (chk_value) {
             $('body').css({ 'background-color': '#100c2a', 'color': '#fff' })
             $('.toggle').css({ 'background-color': '#648dc7' })
