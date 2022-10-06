@@ -1,5 +1,5 @@
 public class Client {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // 1.创建目标
         Subject department1 = new Subject("信息");
         Subject department2 = new Subject("金融");
