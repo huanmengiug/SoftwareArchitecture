@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="toggleWrapper">
+        <input type="checkbox" name="dn" id="dn" />
+        <label for="dn" class="toggle">
+            <span class="toggle__handler">
+                <span class="crater crater--1"></span>
+                <span class="crater crater--2"></span>
+                <span class="crater crater--3"></span>
+            </span>
+            <span class="star star--1"></span>
+            <span class="star star--2"></span>
+            <span class="star star--3"></span>
+            <span class="star star--4"></span>
+            <span class="star star--5"></span>
+            <span class="star star--6"></span>
+        </label>
+    </div>
+    <div id="echarts" style="width: 100vw;height:400px;"></div>
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #1e314f;
+        font-family: "Helvetica Rounded", "Arial Rounded MT Bold", "Montserrat",
+            sans-serif;
+        color: #fff;
+    }
+
+    .toggleWrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        overflow: hidden;
+        padding: 0 200px;
+        transform: translate3d(-50%, -50%, 0);
+        z-index: 22;
+    }
+
+    .toggleWrapper input {
+        position: absolute;
+        /* left: -99em; */
+    }
+
+    .toggle {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        width: 90px;
+        height: 50px;
+        background-color: #85d2f5;
+        border-radius: 90px;
+        transition: 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    }
+
+    .toggle::before {
+        content: "AM";
+        position: absolute;
+        left: -50px;
+        top: 15px;
+        font-size: 18px;
+    }
+
+    .toggle::after {
+        content: "PM";
+        position: absolute;
+        right: -48px;
+        top: 15px;
+        font-size: 18px;
+        color: #749ed7;
+    }
+
+    .toggle__handler {
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        top: 3px;
+        left: 3px;
+        width: calc(50px - 6px);
+        height: calc(50px - 6px);
+        background-color: #ffcf96;
+        border-radius: 50px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        transition: all 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transform: rotate(-45deg);
+
+    }
+
+    .toggle__handler .crater {
+        position: absolute;
+        background-color: #e8cda5;
+        opacity: 0;
+        transition: opacity 200ms ease-in-out;
+        border-radius: 100%;
+    }
+
+    .toggle__handler .crater--1 {
+        top: 18px;
+        left: 10px;
+        width: 4px;
+        height: 4px;
+    }
+
+    .toggle__handler .crater--2 {
+        top: 28px;
+        left: 22px;
+        width: 6px;
+        height: 6px;
+    }
+
+    .toggle__handler .crater--3 {
+        top: 10px;
+        left: 25px;
+        width: 8px;
+        height: 8px;
+    }
+
+    .star {
+        position: absolute;
+        background-color: #ffffff;
+        transition: all 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        border-radius: 50%;
+    }
+
+    .star--1 {
+        top: 10px;
+        left: 35px;
+        z-index: 0;
+        width: 30px;
+        height: 3px;
+    }
+
+    .star--2 {
+        top: 18px;
+        left: 28px;
+        z-index: 1;
+        width: 30px;
+        height: 3px;
+    }
+
+    .star--3 {
+        top: 27px;
+        left: 40px;
+        z-index: 0;
+        width: 30px;
+        height: 3px;
+    }
+
+    .star--4,
+    .star--5,
+    .star--6 {
+        opacity: 0;
+        transition: all 300ms 0 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    }
+
+    .star--4 {
+        top: 16px;
+        left: 11px;
+        z-index: 0;
+        width: 2px;
+        height: 2px;
+        transform: translate3d(3px, 0, 0);
+    }
+
+    .star--5 {
+        top: 32px;
+        left: 17px;
+        z-index: 0;
+        width: 3px;
+        height: 3px;
+        transform: translate3d(3px, 0, 0);
+    }
+
+    .star--6 {
+        top: 36px;
+        left: 28px;
+        z-index: 0;
+        width: 2px;
+        height: 2px;
+        transform: translate3d(3px, 0, 0);
+    }
+</style>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
+<script>
+    var chk_value;
+    $('.toggle').click(function () {
+        chk_value = $('#dn').is(':checked');
+        if (!chk_value) {
+            $('.toggle').css({ 'background-color': '#648dc7' })
+            $('.toggle::before').css({ 'color': '#749ed7' })
+            $('.toggle::after').css({ 'color': '#ffffff' })
+            $('.toggle__handler').css({ 'background-color': '#ffe5b5', 'transform': 'translate3d(40px, 0, 0) rotate(0)' })
+            $('.toggle__handler .crater').css({ 'opacity': '1' })
+            $('.star--1').css({ 'width': '2px', 'height': '2px' })
+            $('.star--2').css({ 'width': '4px', 'height': '4px', 'transform': 'translate3d(-5px, 0, 0)' })
+            $('.star--3').css({ 'width': '2px', 'height': '2px', 'transform': 'translate3d(-7px, 0, 0)' })
+            $('.star--4,.star--5,.star--6').css({ 'opacity': '1', 'transform': 'translate3d(0, 0, 0)' })
+            $('.star--4').css({ 'transition': 'all 300ms 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95)' })
+            $('.star--5').css({ 'transition': 'all 300ms 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95)' })
+            $('.star--6').css({ 'transition': 'all 300ms 400ms cubic-bezier(0.445, 0.05, 0.55, 0.95)' })
+        } else {
+            $('.toggle').css({ 'background-color': '#85d2f5' })
+            $('.toggle::before').css({ 'color': '#fff' })
+            $('.toggle::after').css({ 'color': '#749ed7' })
+            $('.toggle__handler').css({ 'background-color': '#ffcf96', 'transform': 'rotate(-45deg)' })
+            $('.toggle__handler .crater').css({ 'opacity': '0' })
+            $('.star--1,.star--2,.star--3').css({ 'width': '30px', 'height': '3px' })
+            $('.star--2').css({ 'transform': 'translate3d(-5px, 0, 0)' })
+            $('.star--3').css({ 'transform': 'translate3d(-7px, 0, 0)' })
+            $('.star--4,.star--5,.star--6').css({ 'opacity': '0', 'transform': 'translate3d(3px, 0, 0)' })
+            $('.star--4').css({ 'top': '16px', 'left': '11px', 'width': '2px', 'height': '2px' })
+            $('.star--5').css({ 'top': '32px', 'left': '17px', 'width': '3px', 'height': '3px' })
+            $('.star--6').css({ 'top': '36px', 'left': '28px', 'width': '2px', 'height': '2px' })
+
+        }
+    })
+</script>
+
+<script src="./access/echarts/echarts.js"></script>
+<script type="text/javascript">
+    const source_data = [
+        { value: 1048, name: 'SearchEngine' },
+        { value: 735, name: 'Direct' },
+        { value: 580, name: 'Email' },
+        { value: 484, name: 'Union Ads' },
+        { value: 300, name: 'Video Ads' }
+    ];
+    var data_name = ['SearchEngine', 'Direct', 'Email', 'Union Ads', 'Video Ads']
+    var selected = {
+        'SearchEngine': true,
+        'Direct': true,
+        'Email': true,
+        'Union Ads': true,
+        'Video Ads': true
+    };
+    var color = [];
+    var chartDom = document.getElementById('echarts');
+    var myChart = echarts.init(chartDom, 'dark', {
+        renderer: 'svg'
+    });
+    var option;
+
+    option = {
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            top: '5%',
+            left: 'center',
+            data: data_name,
+            selected: selected
+        },
+        // 全局调色盘
+        color: color,
+        series: [
+            {
+                name: 'Access From',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                itemStyle: {
+                    borderRadius: 10,
+                    borderColor: '#fff',
+                    borderWidth: 2
+                },
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '40',
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: source_data
+            }
+        ]
+    };
+
+    option && myChart.setOption(option);
+
+</script>
+
+</html>
