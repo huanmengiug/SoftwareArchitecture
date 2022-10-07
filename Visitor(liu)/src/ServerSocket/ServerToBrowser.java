@@ -29,8 +29,10 @@ public class ServerToBrowser {
 
                 if (url != null) {
                     String url_new = java.net.URLDecoder.decode(url, "UTF-8");
-                    System.out.println("URLDecoder 解码前：\n" + url);
+                    url_new=url_new.split(" ")[1];
+                    url=url_new.split("=")[1];
                     System.out.println("\nURLDecoder 解码后：\n" + url_new);
+
                 }
 
                 // 响应头部
@@ -41,7 +43,7 @@ public class ServerToBrowser {
                         +  "\r\n";
 
                 
-                String jsonText = Client.data("1");
+                String jsonText = Client.data(url);
                 // 响应主体
                 String response_body = jsonText;
 

@@ -9,22 +9,45 @@
 </head>
 
 <body>
-    <div class="toggleWrapper">
-        <input type="checkbox" name="dn" id="dn" />
-        <label for="dn" class="toggle toggle_light">
-            <span class="toggle__handler">
-                <span class="crater crater--1"></span>
-                <span class="crater crater--2"></span>
-                <span class="crater crater--3"></span>
-            </span>
-            <span class="star star--1"></span>
-            <span class="star star--2"></span>
-            <span class="star star--3"></span>
-            <span class="star star--4"></span>
-            <span class="star star--5"></span>
-            <span class="star star--6"></span>
-        </label>
+    <div class="top">
+        <ul id="select">
+            <li>
+                <div class="select-head">
+                    <span class="select-head-cont"></span>
+                    <span class="select-icon">▼</span>
+                </div>
+                <ul class="option">
+                </ul>
+
+            </li>
+        </ul>
+
+        <div class="select">
+            <form action="">
+                <select name="select">
+                </select>
+            </form>
+        </div>
+
+        <div class="toggleWrapper">
+            <input type="checkbox" name="dn" id="dn" />
+            <label for="dn" class="toggle toggle_light">
+                <span class="toggle__handler">
+                    <span class="crater crater--1"></span>
+                    <span class="crater crater--2"></span>
+                    <span class="crater crater--3"></span>
+                </span>
+                <span class="star star--1"></span>
+                <span class="star star--2"></span>
+                <span class="star star--3"></span>
+                <span class="star star--4"></span>
+                <span class="star star--5"></span>
+                <span class="star star--6"></span>
+            </label>
+        </div>
+
     </div>
+
     <div id="echarts" style="width: 100vw;height:400px;"></div>
 </body>
 <style>
@@ -39,6 +62,59 @@
         background-image: linear-gradient(#a872ff, #72B6FF);
         font-family: "Helvetica Rounded", "Arial Rounded MT Bold", "Montserrat", sans-serif;
         color: #000;
+    }
+
+    ul,
+    li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .top{
+        z-index: 1;
+    }
+
+    /*下拉框样式*/
+    #select {
+        width: 249px;
+        font-size: 18px;
+        color: white;
+        border: 1px #1a1a1a solid;
+        border-radius: 8px;
+        z-index:22;
+    }
+
+    .select-head {
+        overflow: hidden;
+        width: 249px;
+        height: 40px;
+        box-sizing: border-box;
+        padding: 0 10px;
+        line-height: 40px;
+    }
+
+    .select-head .select-head-cont {
+        float: left;
+    }
+
+    .select-head .select-icon {
+        float: right;
+    }
+
+    .option {
+        position: absolute;
+        text-indent: 10px;
+        margin-top: 1px;
+        width: 249px;
+        color: black;
+        background: rgba(236, 111, 111, 0.1);
+        line-height: 25px;
+        border: 1px #cfcfcf solid;
+        display: none;
+    }
+
+    .option-item:hover {
+        background: rgba(204, 106, 67, 0.3);
     }
 
     .toggleWrapper {
@@ -66,8 +142,11 @@
         border-radius: 90px;
         transition: 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
     }
-    .toggle_light::after,.toggle_light::before,
-    .toggle_night::before,.toggle_night::after{
+
+    .toggle_light::after,
+    .toggle_light::before,
+    .toggle_night::before,
+    .toggle_night::after {
         position: absolute;
         top: 15px;
         font-size: 18px;
@@ -76,24 +155,25 @@
 
 
     .toggle_light::before {
-        content: "AM";
+        content: "light";
         left: -50px;
         color: #000;
     }
 
     .toggle_light::after {
-        content: "PM";
+        content: "night";
         right: -48px;
         color: transparent;
     }
+
     .toggle_night::before {
-        content: "AM";
+        content: "light";
         left: -50px;
         color: transparent;
     }
 
     .toggle_night::after {
-        content: "PM";
+        content: "night";
         right: -48px;
         color: #fff;
     }
@@ -207,8 +287,9 @@
         height: 2px;
         transform: translate3d(3px, 0, 0);
     }
-    #echarts{
-        margin-top:3em;
+
+    #echarts {
+        margin-top: 3em;
     }
 </style>
 
@@ -237,46 +318,61 @@
         '#8378EA',
         '#96BFFF'];
     var chartDom = document.getElementById('echarts');
+    const shell = 'CEO'
 
     $.ajax({
         async: false,
         url: 'http://127.0.0.1:8088/data',
+        data: {shell},
         type: 'GET',
         dataType: 'json',
         success: function (data) {
             for (var i in data) {
                 tagName[tagName.length] = i;
             }
+            init_select()
             data_json = data;
             showName = tagName[0] + '-'
             bid(data_json[tagName[0]]);
-
         },
         error: function (err) {
             window.alert("信息回传失败（；´д｀）ゞ");
         }
     })
+    function init_select() {
+        var select = $('select[name = select]')
+        tagName.forEach((item, index) => {
+            select.append("<option value=" + index + ">" + item + "</option>")
+        })
+        select.val(0);
+
+        var select = $('.option')
+        tagName.forEach((item, index) => {
+            select.append("<li class='option-item'>"+item+"</li>")
+        })
+    }
+    $('select[name = select]').change(function () {
+        var value = $(this).val();
+        if (value < tagName.length) {
+            showName = tagName[value] + '-'
+            bid(data_json[tagName[value]]);
+            $('.select-head-cont').text(tagName[value])
+            xunran()
+        }
+    });
 
     function bid(data) {
-        var tem_tag = [];
-        for (var it in data[0]) {
-            tem_tag[tem_tag.length] = it;
-        }
-        tem_tag.splice(tagName.indexOf("name"), 1);
-        showName += tem_tag.toString();
-
-        for (var itit of data) {
-            itit["value"] = itit[tem_tag[0]]
-            itit[tem_tag[0]] = undefined
-        }
+        showName += data[0].tager;
         source_data = data
     }
 
-    source_data.forEach(function (item, index) {
-        data_name.push(item.name)
-    })
+
     xunran()
     function xunran() {
+        data_name = []
+        source_data.forEach(function (item, index) {
+            data_name.push(item.name)
+        })
 
         is_dark = ddra ? "dark" : "null"
 
@@ -337,10 +433,10 @@
         chk_value = ddra;
 
         if (chk_value) {
-            $("body").css({'background-image': 'linear-gradient(#100c2a, #2d2176)', 'color': '#fff'})
-            $('.toggle').css({ 'background-color': '#648dc7'})
+            $("body").css({ 'background-image': 'linear-gradient(#100c2a, #2d2176)', 'color': '#fff' })
+            $('.toggle').css({ 'background-color': '#648dc7' })
             $(".toggle_light").removeClass('toggle_light').addClass('toggle_night');
-       
+
             $('.toggle__handler').css({ 'background-color': '#ffe5b5', 'transform': 'translate3d(40px, 0, 0) rotate(0)' })
             $('.toggle__handler .crater').css({ 'opacity': '1' })
             $('.star--1').css({ 'width': '2px', 'height': '2px' })
@@ -369,6 +465,41 @@
         xunran()
     })
 
+    //int
+    var selectHead = document.getElementsByClassName('select-head')[0];
+    var selectHeadCont = document.getElementsByClassName('select-head-cont');
+    var Options = document.getElementsByClassName('option')[0];
+    var optionItem = document.getElementsByClassName('option-item');
+
+    /*默认是第一个选项*/
+    selectHeadCont[0].innerHTML = optionItem[0].innerHTML;
+
+    /*点击后出现下拉框*/
+    var select_click = false
+
+    $(".select-head").click(function(e){
+        e.preventDefault();
+        select_click = true;
+        Options.style.display = 'block';
+    })
+    /*点击选项后出现在下拉框*/
+    var len = optionItem.length;
+    for (var i = 0; i < len; i++) {
+        optionItem[i].index = i;
+        optionItem[i].addEventListener('click', function () {
+            selectHeadCont[0].innerHTML = optionItem[this.index].innerHTML;
+            Options.style.display = 'none';
+        }, false);
+    }
+    /*点击其他地方时，select会收起来*/
+    $("#echarts,body").click(function (e) {
+        e.preventDefault();
+        if(!select_click){
+            Options.style.display = 'none';
+        }
+        select_click=false;
+        
+    })
 </script>
 
 </html>

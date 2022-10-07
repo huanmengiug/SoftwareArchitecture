@@ -16,7 +16,14 @@ public class Client {
     public static String data(String Visitor) {
         Map<String, List<Map<String, String>>> map = new HashMap<String, List<Map<String, String>>>();
         BusinessReport report = new BusinessReport();
-        List<String> bss = report.showReport(new CTOVisitor());
+        List<String> bss ;
+        if(Visitor.equals("CEO")){
+            bss = report.showReport(new CEOVisitor());
+            System.out.println(Visitor);
+        }else{
+            bss = report.showReport(new CTOVisitor());
+        }
+        
 
         Iterator<String> iterator = bss.iterator();
         while (iterator.hasNext()) {
@@ -26,17 +33,20 @@ public class Client {
             String lei = next.split(": ", 2)[0];
             String name_kl = next.split(": ", 2)[1];
             String name = name_kl.split(",")[0];
-            String kl = name_kl.split(", ")[1];
+            String vl = name_kl.split(", ")[1];
+            String tager = name_kl.split(", ")[2];
             if (!map.containsKey(lei)) {
+                tmp.put("tager", tager.split(": ")[1]);
                 tmp.put("name", name);
-                tmp.put(kl.split(": ")[0], kl.split(": ")[1]);
+                tmp.put(vl.split(": ")[0], vl.split(": ")[1]);
                 list.add(tmp);
                 map.put(lei, list);
             } else {
-                
+
                 list = map.get(lei);
+                tmp.put("tager", tager.split(": ")[1]);
                 tmp.put("name", name);
-                tmp.put(kl.split(": ")[0], kl.split(": ")[1]);
+                tmp.put(vl.split(": ")[0], vl.split(": ")[1]);
                 list.add(tmp);
             }
         }
