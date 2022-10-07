@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<config>
-	<!--RefinedAbstraction-->
-	<className>root.GIFImage</className> 
-	<!--ConcreteImplementor-->
-	<className>root.WindowsImp</className>
-</config>
