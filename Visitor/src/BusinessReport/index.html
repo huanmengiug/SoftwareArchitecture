@@ -193,39 +193,18 @@
         transform: translate3d(3px, 0, 0);
     }
 </style>
-<!-- <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script> -->
-<script src="../../lib/jquery-3.5.1.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
+<!-- <script src="../../lib/jquery-3.5.1.js"></script> -->
 
 
 <script src="./access/echarts/echarts.js"></script>
 <script type="text/javascript">
-    $.ajax({
-        url: 'http://127.0.0.1:8088/data',
-        type: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            console.log(data)
-        },
-        error: function (err) {
-            console.log(err,"err")
-            //请求失败的回调函数,参数"err"中放的是错误信息
-        }
-    })
-
-
-    const source_data = [
-        { value: 1048, name: 'SearchEngine' },
-        { value: 735, name: 'Direct' },
-        { value: 580, name: 'Email' },
-        { value: 484, name: 'Union Ads' },
-        { value: 300, name: 'Video Ads' }
-    ];
-    let ddra = false
-    var data_name = []
-    var is_dark = 'null'
-    source_data.forEach(function (item, index) {
-        data_name.push(item.name)
-    })
+    let tagName =[];
+    let data_json;
+    let ddra = false;
+    let source_data = [];
+    var data_name = [];
+    var is_dark = 'null';
     var color = ['#37A2DA',
         '#32C5E9',
         '#67E0E3',
@@ -240,6 +219,26 @@
         '#8378EA',
         '#96BFFF'];
     var chartDom = document.getElementById('echarts');
+    $.ajax({
+        async:false,
+        url: 'http://127.0.0.1:8088/data',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            for (var i in data) {
+                tagName[tagName.length]=i;
+            }
+            source_data = data[tagName[1]];
+        },
+        error: function (err) {
+            window.alert("信息回传失败（；´д｀）ゞ");
+        }
+    })
+    console.log(source_data)
+
+    source_data.forEach(function (item, index) {
+        data_name.push(item.name)
+    })
     xunran()
     function xunran() {
 
@@ -265,7 +264,7 @@
             // color: color,
             series: [
                 {
-                    name: 'Access From',
+                    name: tagName[1],
                     type: 'pie',
                     radius: ['40%', '70%'],
                     avoidLabelOverlap: false,
