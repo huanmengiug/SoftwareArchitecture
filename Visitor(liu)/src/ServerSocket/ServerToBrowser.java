@@ -42,7 +42,6 @@ public class ServerToBrowser {
 
                 
                 String jsonText = Client.data("1");
-                System.out.println(jsonText);
                 // 响应主体
                 String response_body = jsonText;
 
