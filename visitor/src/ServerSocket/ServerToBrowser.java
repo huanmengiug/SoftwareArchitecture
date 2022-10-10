@@ -4,6 +4,8 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import service.billDataAPI;
+
 public class ServerToBrowser {
     public static void main(String[] args) throws IOException {
         try (
@@ -14,7 +16,7 @@ public class ServerToBrowser {
                 // 阻塞式连接，当接收请求前保持阻塞
                 Socket socket_client = server.accept();
                 // 跨域请求的地址（*）
-                String ALLOW_ORIGINS = "http://127.0.0.1:3000";
+                String ALLOW_ORIGINS = "*";
 
                 // 获取输入流
                 InputStream in_put = socket_client.getInputStream();
@@ -28,8 +30,8 @@ public class ServerToBrowser {
 
                 if (url != null) {
                     String url_new = java.net.URLDecoder.decode(url, "UTF-8");
-                    url_new = url_new.split(" ")[1];
-                    url = url_new.split("=")[1];
+                    // url_new = url_new.split(" ")[1];
+                    // url = url_new.split("=")[1];
                     System.out.println("\nURLDecoder 解码后：\n" + url_new);
 
                 }
@@ -41,7 +43,7 @@ public class ServerToBrowser {
                         + "Access-Control-Allow-Methods: PUT,POST,GET\r\n"
                         + "\r\n";
 
-                String jsonText = "1";
+                String jsonText = billDataAPI.data("CPA");
                 // 响应主体
                 String response_body = jsonText;
 

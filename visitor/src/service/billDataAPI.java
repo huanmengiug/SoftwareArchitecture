@@ -6,11 +6,10 @@ import service.Element.ConcreteElement.ConsumeBill;
 import service.Element.ConcreteElement.IncomeBill;
 import service.ObjectStructure.AccountBook;
 import service.Visitor.Viewer;
-import service.Visitor.ConcreteVisitor.CFO;
 
 public class billDataAPI {
 
-	public static String data(String Viewer) {
+	public static String data(String viewer) {
 
 		AccountBook accountBook = new AccountBook();
 		// 添加两条收入
@@ -20,18 +19,18 @@ public class billDataAPI {
 		accountBook.addBill(new ConsumeBill(1000, "工资"));
 		accountBook.addBill(new ConsumeBill(2000, "材料费"));
 
-		Viewer viewer = new CFO();
+		Viewer viewe = (Viewer) XMLUtil.getBean(viewer);
 
 		// 两个访问者分别访问账本
 
-		String mapJson = JSON.toJSONString(accountBook.show(viewer));
+		String mapJson = JSON.toJSONString(accountBook.show(viewe));
 
 		return mapJson;
 
 	}
 
 	public static void main(String[] args) {
-		System.out.println(data("CFO"));
+		System.out.println(data("CPA"));
 	}
 
 }
