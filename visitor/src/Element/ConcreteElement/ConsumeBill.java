@@ -1,3 +1,8 @@
+package Element.ConcreteElement;
+
+import Element.AbstractBill;
+import Visitor.AbstractViewer;
+import Visitor.Viewer;
 
 //消费的单子
 public class ConsumeBill extends AbstractBill {

@@ -1,6 +1,10 @@
+package ObjectStructure;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import Element.Bill;
+import Visitor.Viewer;
  
 //账本类（相当于ObjectStruture）
 public class AccountBook {

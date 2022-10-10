@@ -1,3 +1,8 @@
+package Visitor.ConcreteVisitor;
+
+import Element.ConcreteElement.ConsumeBill;
+import Element.ConcreteElement.IncomeBill;
+import Visitor.AbstractViewer;
 
 //老板类，查看账本的类之一，作用于最低层次结构
 public class Boss extends AbstractViewer {

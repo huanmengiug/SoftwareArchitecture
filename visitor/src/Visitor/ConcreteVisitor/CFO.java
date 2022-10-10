@@ -1,3 +1,6 @@
+package Visitor.ConcreteVisitor;
+import Element.AbstractBill;
+import Visitor.Viewer;
 
 //财务主管类，查看账本的类之一，作用于高层的层次结构
 public class CFO implements Viewer {

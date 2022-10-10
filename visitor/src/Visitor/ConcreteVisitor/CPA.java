@@ -1,3 +1,7 @@
+package Visitor.ConcreteVisitor;
+import Element.ConcreteElement.ConsumeBill;
+import Element.ConcreteElement.IncomeBill;
+import Visitor.AbstractViewer;
 
 //注册会计师类，查看账本的类之一，作用于最低层次结构
 public class CPA extends AbstractViewer {
