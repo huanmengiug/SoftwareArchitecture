@@ -1,5 +1,8 @@
 package Visitor.ConcreteVisitor;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import Element.ConcreteElement.ConsumeBill;
 import Element.ConcreteElement.IncomeBill;
 import Visitor.AbstractViewer;
@@ -12,12 +15,18 @@ public class Boss extends AbstractViewer {
     private double totalConsume;
 
     // 老板只关注一共花了多少钱以及一共收入多少钱，其余并不关心
-    public void viewConsumeBill(ConsumeBill bill) {
+    public Map<String,String> viewConsumeBill(ConsumeBill bill) {
         totalConsume += bill.getAmount();
+        Map<String,String> map = new HashMap<>();
+        map.put(bill.getItem(), String.valueOf(bill.getAmount()));
+        return map;
     }
 
-    public void viewIncomeBill(IncomeBill bill) {
+    public Map<String,String> viewIncomeBill(IncomeBill bill) {
         totalIncome += bill.getAmount();
+        Map<String,String> map = new HashMap<>();
+        map.put(bill.getItem(), String.valueOf(bill.getAmount()));
+        return map;
     }
 
     public double getTotalIncome() {

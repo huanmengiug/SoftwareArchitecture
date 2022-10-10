@@ -22,9 +22,10 @@ public class Client {
 		Viewer cfo = new CFO();
 		
 		//两个访问者分别访问账本
-		accountBook.show(cpa);
-		accountBook.show(cfo);
-        accountBook.show(boss);
+		System.out.println(accountBook.show(cpa));
+		System.out.println(accountBook.show(cfo));
+		System.out.println(accountBook.show(boss));
+		
 		
 		((Boss) boss).getTotalConsume();
 		((Boss) boss).getTotalIncome();
