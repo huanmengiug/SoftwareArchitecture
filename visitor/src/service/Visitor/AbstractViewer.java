@@ -1,10 +1,10 @@
-package Visitor;
+package service.Visitor;
 
 import java.util.Map;
 
-import Element.AbstractBill;
-import Element.ConcreteElement.ConsumeBill;
-import Element.ConcreteElement.IncomeBill;
+import service.Element.AbstractBill;
+import service.Element.ConcreteElement.ConsumeBill;
+import service.Element.ConcreteElement.IncomeBill;
 
 //比Viewer接口低一个层次的访问者接口
 public abstract class AbstractViewer implements Viewer {

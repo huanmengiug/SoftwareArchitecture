@@ -1,4 +1,4 @@
-package Element;
+package service.Element;
 
  
 //抽象单子类，一个高层次的单子抽象
