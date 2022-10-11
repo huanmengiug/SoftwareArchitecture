@@ -1,8 +1,8 @@
 package service.Visitor;
 
-import java.util.Map;
 
 import service.Element.AbstractBill;
+import service.Element.cBill;
 import service.Element.ConcreteElement.ConsumeBill;
 import service.Element.ConcreteElement.IncomeBill;
 
@@ -10,12 +10,12 @@ import service.Element.ConcreteElement.IncomeBill;
 public abstract class AbstractViewer implements Viewer {
 
 	// 查看消费的单子
-	public abstract Map<String,String> viewConsumeBill(ConsumeBill bill);
+	public abstract cBill viewConsumeBill(ConsumeBill bill);
 
 	// 查看收入的单子
-	public abstract Map<String,String> viewIncomeBill(IncomeBill bill);
+	public abstract cBill viewIncomeBill(IncomeBill bill);
 
-	public final Map<String,String> viewAbstractBill(AbstractBill bill) {
+	public final cBill viewAbstractBill(AbstractBill bill) {
 		return null;
 	}
 }

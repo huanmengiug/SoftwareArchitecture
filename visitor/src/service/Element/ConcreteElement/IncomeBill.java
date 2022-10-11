@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import service.Element.AbstractBill;
+import service.Element.cBill;
 import service.Visitor.AbstractViewer;
 import service.Visitor.Viewer;
 
@@ -15,18 +16,18 @@ public class IncomeBill extends AbstractBill {
     }
 
     @Override
-    public Map<String,Map<String, ?>> accept(Viewer viewer) {
-        Map<String,Map<String, ?>> mapper = new HashMap<>();
+    public Map<String,cBill> accept(Viewer viewer) {
+        Map<String,cBill> mapper = new HashMap<>();
         if (viewer instanceof AbstractViewer) {
-            Map<String, ?> map = ((AbstractViewer) viewer).viewIncomeBill(this);
-            if (map == null) return null;
-            mapper.put("in", map);
+            cBill cBill = ((AbstractViewer) viewer).viewIncomeBill(this);
+            if (cBill == null) return null;
+            mapper.put("in", cBill);
             return mapper;
         }
 
-        Map<String, ?> map = viewer.viewAbstractBill(this);
-        if (map == null) return null;
-        mapper.put("in", map);
+        cBill cBill = viewer.viewAbstractBill(this);
+        if (cBill == null) return null;
+        mapper.put("in", cBill);
         return mapper;
     }
 }

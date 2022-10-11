@@ -7,6 +7,6 @@ import service.Visitor.Viewer;
 //单个单子的接口（相当于Element）
 public interface Bill {
 
-    Map<String,Map<String,?>> accept(Viewer viewer);
+    Map<String,cBill> accept(Viewer viewer);
 
 }

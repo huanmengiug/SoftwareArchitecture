@@ -27,12 +27,13 @@ public class ServerToBrowser {
                 // 读取请求内容
                 BufferedReader input = new BufferedReader(new InputStreamReader(in_put, "GBK"));
                 String url = input.readLine();
+                String url_new = java.net.URLDecoder.decode(url, "UTF-8");
+                String request = "";
 
                 if (url != null) {
-                    String url_new = java.net.URLDecoder.decode(url, "UTF-8");
-                    // url_new = url_new.split(" ")[1];
-                    // url = url_new.split("=")[1];
-                    System.out.println("\nURLDecoder 解码后：\n" + url_new);
+                    url_new = url_new.split(" ")[1];
+                    request = url_new.split("\\?")[0];
+                    // System.out.println("\nURLDecoder 解码后：\n" + url_new);
 
                 }
 
@@ -42,10 +43,13 @@ public class ServerToBrowser {
                         + "Content-Type: application/json;charset=GBK\r\n"
                         + "Access-Control-Allow-Methods: PUT,POST,GET\r\n"
                         + "\r\n";
+                String response_body = "";
 
-                String jsonText = billDataAPI.data("CPA");
-                // 响应主体
-                String response_body = jsonText;
+                if (request.equals("/data")) {
+                    String jsonText = billDataAPI.data(url_new.split("=")[1]);
+                    // 响应主体
+                    response_body = jsonText;
+                }
 
                 response.append(response_head + response_body);
 

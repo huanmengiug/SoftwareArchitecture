@@ -1,12 +1,12 @@
 package service.Visitor;
 
-import java.util.Map;
 
 import service.Element.AbstractBill;
+import service.Element.cBill;
 
 //超级访问者接口（它支持定义高层操作）
 public interface Viewer {
 
-	Map<String,String> viewAbstractBill(AbstractBill bill);
+	cBill viewAbstractBill(AbstractBill bill);
 
 }
