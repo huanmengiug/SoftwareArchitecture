@@ -16,13 +16,13 @@ public class Boss extends AbstractViewer {
     // 老板只关注一共花了多少钱以及一共收入多少钱，其余并不关心
     public cBill viewConsumeBill(ConsumeBill bill) {
         totalConsume += bill.getAmount();
-		cBill cBill = new service.Element.cBill(bill.getItem(), bill.getAmount());
+		cBill cBill = new service.Element.cBill(bill.getItem(), bill.getAmount(), bill.getTime());
         return cBill;
     }
 
     public cBill viewIncomeBill(IncomeBill bill) {
         totalIncome += bill.getAmount();
-		cBill cBill = new service.Element.cBill(bill.getItem(), bill.getAmount());
+		cBill cBill = new service.Element.cBill(bill.getItem(), bill.getAmount(), bill.getTime());
         return cBill;
     }
 

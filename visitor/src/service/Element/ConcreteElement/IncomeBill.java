@@ -11,8 +11,8 @@ import service.Visitor.Viewer;
 //收入单子
 public class IncomeBill extends AbstractBill {
 
-    public IncomeBill(double amount, String item) {
-        super(amount, item);
+    public IncomeBill(double amount, String item, String time) {
+        super(amount, item, time);
     }
 
     @Override

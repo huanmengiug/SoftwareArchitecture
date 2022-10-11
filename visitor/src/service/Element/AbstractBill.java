@@ -7,11 +7,14 @@ public abstract class AbstractBill implements Bill{
 	protected double amount;
 	
 	protected String item;
+
+	protected String time;
 	
-	public AbstractBill(double amount, String item) {
+	public AbstractBill(double amount, String item, String time) {
 		super();
 		this.amount = amount;
 		this.item = item;
+		this.time = time;
 	}
 	
 	public double getAmount() {
@@ -20,6 +23,10 @@ public abstract class AbstractBill implements Bill{
  
 	public String getItem() {
 		return item;
+	}
+
+	public String getTime() {
+		return time;
 	}
 	
 }
