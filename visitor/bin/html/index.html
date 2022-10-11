@@ -4,11 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>首页 - 光年(Light Year Admin)后台管理系统模板</title>
+  <title>后台管理系统</title>
   <link rel="icon" href="favicon.ico" type="image/ico">
-  <meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
-  <meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
-  <meta name="author" content="yinqi">
+  <meta name="keywords" content="LightYear">
+  <meta name="description" content="后台管理系统">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/materialdesignicons.min.css" rel="stylesheet">
   <link href="css/style.min.css" rel="stylesheet">
@@ -30,7 +29,7 @@
             <ul class="nav nav-drawer">
               <li class="nav-item active"> <a href="index.html"><i class="mdi mdi-home"></i> 后台首页</a> </li>
               <li class="nav-item nav-item-has-subnav">
-                <a href="javascript:void(0)"><i class="mdi mdi-palette"></i> UI 元素</a>
+                <a href="javascript:void(0)"><i class="mdi mdi-palette"></i> 员工信息</a>
                 <ul class="nav nav-subnav">
                   <li> <a href="lyear_ui_buttons.html">按钮</a> </li>
                   <li> <a href="lyear_ui_cards.html">卡片</a> </li>
@@ -49,7 +48,7 @@
                 </ul>
               </li>
               <li class="nav-item nav-item-has-subnav">
-                <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i> 表单</a>
+                <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i> 表单管理</a>
                 <ul class="nav nav-subnav">
                   <li> <a href="lyear_forms_elements.html">基本元素</a> </li>
                   <li> <a href="lyear_forms_radio.html">单选框</a> </li>
@@ -58,7 +57,7 @@
                 </ul>
               </li>
               <li class="nav-item nav-item-has-subnav">
-                <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i> 示例页面</a>
+                <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i> 主页</a>
                 <ul class="nav nav-subnav">
                   <li> <a href="lyear_pages_doc.html">文档列表</a> </li>
                   <li> <a href="lyear_pages_gallery.html">图库列表</a> </li>
@@ -73,38 +72,7 @@
                   <li> <a href="lyear_pages_error.html">错误页面</a> </li>
                 </ul>
               </li>
-              <li class="nav-item nav-item-has-subnav">
-                <a href="javascript:void(0)"><i class="mdi mdi-language-javascript"></i> JS 插件</a>
-                <ul class="nav nav-subnav">
-                  <li> <a href="lyear_js_datepicker.html">日期选取器</a> </li>
-                  <li> <a href="lyear_js_sliders.html">滑块</a> </li>
-                  <li> <a href="lyear_js_colorpicker.html">选色器</a> </li>
-                  <li> <a href="lyear_js_chartjs.html">Chart.js</a> </li>
-                  <li> <a href="lyear_js_jconfirm.html">对话框</a> </li>
-                  <li> <a href="lyear_js_tags_input.html">标签插件</a> </li>
-                  <li> <a href="lyear_js_notify.html">通知消息</a> </li>
-                </ul>
-              </li>
-              <li class="nav-item nav-item-has-subnav">
-                <a href="javascript:void(0)"><i class="mdi mdi-menu"></i> 多级菜单</a>
-                <ul class="nav nav-subnav">
-                  <li> <a href="#!">一级菜单</a> </li>
-                  <li class="nav-item nav-item-has-subnav">
-                    <a href="#!">一级菜单</a>
-                    <ul class="nav nav-subnav">
-                      <li> <a href="#!">二级菜单</a> </li>
-                      <li class="nav-item nav-item-has-subnav">
-                        <a href="#!">二级菜单</a>
-                        <ul class="nav nav-subnav">
-                          <li> <a href="#!">三级菜单</a> </li>
-                          <li> <a href="#!">三级菜单</a> </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li> <a href="#!">一级菜单</a> </li>
-                </ul>
-              </li>
+
             </ul>
           </nav>
 
@@ -132,7 +100,7 @@
               <li class="dropdown dropdown-profile">
                 <a href="javascript:void(0)" data-toggle="dropdown">
                   <img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg" alt="笔下光年" />
-                  <span>笔下光年 <span class="caret"></span></span>
+                  <span>CPA<span class="caret"></span></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li> <a href="lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>
@@ -316,6 +284,25 @@
                 </div>
               </div>
             </div>
+            <div style="display: none;" class="alert alert-info alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                  aria-hidden="true">&times;</span></button>
+              <h4>老板只关注一共花了多少钱以及一共收入多少钱，其余并不关心</h4>
+              <p>老板查看一共收入多少/老板查看一共花费多少(所有工资合并)</p>
+            </div>
+            <div style="display: none;" class="alert alert-info alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                  aria-hidden="true">&times;</span></button>
+              <h4>财务主管对每一个单子都要核对项目和金额</h4>
+              <p>财务主管查看账本时，每一个都核对项目和金额</p>
+            </div>
+            <div class="alert alert-info alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                  aria-hidden="true">&times;</span></button>
+              <h4>注册会计师（CPA）在看账本时，如果是支出，则如果支出是工资，则需要看应该交的税交了没</h4>
+              <p>注册会计师查看账本时，如果单子的消费目的是发工资，则注会会查看有没有交个人所得税</p>
+              <p>注册会计师查看账本时，只要是收入，注会都要查看公司交税了没</p>
+            </div>
 
 
             <div class="row">
@@ -342,10 +329,10 @@
 
             <div class="row">
 
-              <div class="col-lg-12">
+              <div class="col-lg-6">
                 <div class="card">
                   <div class="card-header">
-                    <h4>项目信息</h4>
+                    <h4>收入</h4>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
@@ -354,109 +341,37 @@
                           <tr>
                             <th>#</th>
                             <th>项目名称</th>
-                            <th>开始日期</th>
-                            <th>截止日期</th>
+                            <th>金额</th>
+                            <th>日期</th>
                             <th>状态</th>
-                            <th>进度</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="in_tab">
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>支出</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-hover">
+                        <thead>
                           <tr>
-                            <td>1</td>
-                            <td>设计新主题</td>
-                            <td>10/02/2019</td>
-                            <td>12/05/2019</td>
-                            <td><span class="label label-warning">待定</span></td>
-                            <td>
-                              <div class="progress progress-striped progress-sm">
-                                <div class="progress-bar progress-bar-warning" style="width: 45%;"></div>
-                              </div>
-                            </td>
+                            <th>#</th>
+                            <th>项目名称</th>
+                            <th>金额</th>
+                            <th>日期</th>
+                            <th>状态</th>
                           </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>网站重新设计</td>
-                            <td>01/03/2019</td>
-                            <td>12/04/2019</td>
-                            <td><span class="label label-success">进行中</span></td>
-                            <td>
-                              <div class="progress progress-striped progress-sm">
-                                <div class="progress-bar progress-bar-success" style="width: 30%;"></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>模型设计</td>
-                            <td>10/10/2019</td>
-                            <td>12/11/2019</td>
-                            <td><span class="label label-warning">待定</span></td>
-                            <td>
-                              <div class="progress progress-striped progress-sm">
-                                <div class="progress-bar progress-bar-warning" style="width: 25%;"></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>4</td>
-                            <td>后台管理系统模板设计</td>
-                            <td>25/01/2019</td>
-                            <td>09/05/2019</td>
-                            <td><span class="label label-success">进行中</span></td>
-                            <td>
-                              <div class="progress progress-striped progress-sm">
-                                <div class="progress-bar progress-bar-success" style="width: 55%;"></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>5</td>
-                            <td>前端设计</td>
-                            <td>10/10/2019</td>
-                            <td>12/12/2019</td>
-                            <td><span class="label label-danger">未开始</span></td>
-                            <td>
-                              <div class="progress progress-striped progress-sm">
-                                <div class="progress-bar progress-bar-danger" style="width: 0%;"></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>6</td>
-                            <td>桌面软件测试</td>
-                            <td>10/01/2019</td>
-                            <td>29/03/2019</td>
-                            <td><span class="label label-success">进行中</span></td>
-                            <td>
-                              <div class="progress progress-striped progress-sm">
-                                <div class="progress-bar progress-bar-success" style="width: 75%;"></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>7</td>
-                            <td>APP改版开发</td>
-                            <td>25/02/2019</td>
-                            <td>12/05/2019</td>
-                            <td><span class="label label-danger">暂停</span></td>
-                            <td>
-                              <div class="progress progress-striped progress-sm">
-                                <div class="progress-bar progress-bar-danger" style="width: 15%;"></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>8</td>
-                            <td>Logo设计</td>
-                            <td>10/02/2019</td>
-                            <td>01/03/2019</td>
-                            <td><span class="label label-warning">完成</span></td>
-                            <td>
-                              <div class="progress progress-striped progress-sm">
-                                <div class="progress-bar progress-bar-success" style="width: 100%;"></div>
-                              </div>
-                            </td>
-                          </tr>
+                        </thead>
+                        <tbody id="out_tab">
                         </tbody>
                       </table>
                     </div>
@@ -494,6 +409,8 @@
         console.log(data)
         inlist(standard_data(data['in']));
         outlist(standard_data(data['out']));
+        inlab(data['in'])
+        outlab(data['out'])
         $("#in").text(cash[0]);
         $("#out").text(cash[1]);
       },
@@ -526,6 +443,59 @@
       }
       cash[cash.length] = sum;
       return re_data
+    }
+
+    function MsgSort(obj){
+      obj.sort((a, b) => {
+        let t1 = new Date(Date.parse(a.time.replace(/-/g, "/")))
+        let t2 = new Date(Date.parse(b.time.replace(/-/g, "/")))
+        return t2.getTime() - t1.getTime()
+      })
+      return obj
+    }
+
+
+    function inlab(in_data) {
+      var lab = $("#in_tab");
+      var arr = []
+
+      // 将需要排序的 key, 按照 "从小到大" 进行排列
+      arr = MsgSort(in_data)
+
+
+      var lab_tag = ['label-warning', 'label-success', 'label-danger'], labTag = ['待定', '进行中', '未开始'];
+      var td;
+      for (var i in in_data) {
+        var rand = Math.round(Math.random() * (lab_tag.length - 1));
+        td = "<tr>\n" +
+          "<td>" + (parseInt(i) + 1) + "</td>\n" +
+          "<td>" + in_data[i].tag + "</td>\n" +
+          "<td>" + in_data[i].money + "</td>\n" +
+          "<td>" + in_data[i].time + "</td>\n" +
+          "<td><span class='label " + lab_tag[rand] + "'>" + labTag[rand] + "</span></td>\n" +
+          "</tr>"
+        lab.append($(td))
+      }
+    }
+    function outlab(out_data) {
+      var lab = $("#out_tab");
+      var arr = []
+
+      arr = MsgSort(out_data)
+
+      var lab_tag = ['label-warning', 'label-success', 'label-danger'], labTag = ['待定', '进行中', '未开始'];
+      var td;
+      for (var i in out_data) {
+        var rand = Math.round(Math.random() * (lab_tag.length - 1));
+        td = "<tr>\n" +
+          "<td>" + (parseInt(i) + 1) + "</td>\n" +
+          "<td>" + out_data[i].tag + "</td>\n" +
+          "<td>" + out_data[i].money + "</td>\n" +
+          "<td>" + out_data[i].time + "</td>\n" +
+          "<td><span class='label " + lab_tag[rand] + "'>" + labTag[rand] + "</span></td>\n" +
+          "</tr>"
+        lab.append($(td))
+      }
     }
 
     function inlist(in_data) {

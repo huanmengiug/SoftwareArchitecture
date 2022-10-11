@@ -3,11 +3,12 @@ package ServerSocket;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.ParseException;
 
 import service.billDataAPI;
 
 public class ServerToBrowser {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ParseException {
         try (
                 // 创建服务器监听8080端口
                 ServerSocket server = new ServerSocket(8088)) {
